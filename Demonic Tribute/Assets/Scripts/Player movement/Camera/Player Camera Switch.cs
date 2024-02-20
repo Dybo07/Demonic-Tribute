@@ -29,12 +29,20 @@ public class PlayerCameraSwitch : MonoBehaviour
         {
             camFP.SetActive(true);
             camTP.SetActive(false);
+            GetComponent<FirstPersonCamera>().enabled = true;
+            GetComponent<ThirdPersonCamera>().enabled = false;
+            GetComponent<Firstpersonmovement>().enabled = true;
+            GetComponent<ThirdPersoonmovement>().enabled = false;
             cameraSwitch = true;
         }
         else if (Input.GetButtonDown("CamSwitch") && cameraSwitch == true)
         {
             camFP.SetActive(false);
             camTP.SetActive(true);
+            GetComponent<FirstPersonCamera>().enabled = false;
+            GetComponent<ThirdPersonCamera>().enabled = true;
+            GetComponent<Firstpersonmovement>().enabled = false;
+            GetComponent<ThirdPersoonmovement>().enabled = true;
             cameraSwitch = false;
         }
 

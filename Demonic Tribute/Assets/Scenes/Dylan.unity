@@ -1254,7 +1254,8 @@ GameObject:
   - component: {fileID: 1723452387}
   - component: {fileID: 1723452386}
   - component: {fileID: 1723452385}
-  - component: {fileID: 1723452384}
+  - component: {fileID: 1723452389}
+  - component: {fileID: 1723452388}
   m_Layer: 0
   m_Name: TMP_Player
   m_TagString: Untagged
@@ -1385,22 +1386,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 80
   m_CollisionDetection: 0
---- !u!114 &1723452384
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1723452377}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7092b0be9b191bc4882ef06f67f17c52, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  vert: 0
-  hori: 0
-  dir: {x: 0, y: 0, z: 0}
-  speed: 0
 --- !u!114 &1723452385
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1443,6 +1428,36 @@ MonoBehaviour:
   camFP: {fileID: 330585543}
   camTP: {fileID: 317437796}
   cameraSwitch: 0
+--- !u!114 &1723452388
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1723452377}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f30f976919802f044bb5819cb4193b15, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1723452389
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1723452377}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 50bd80054e0d7cc4ba90a371b3c5ba08, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  vert: 0
+  hori: 0
+  dir: {x: 0, y: 0, z: 0}
+  speed: 0
+  rb: {fileID: 1723452382}
+  jumpForce: 0
 --- !u!1 &2089501289
 GameObject:
   m_ObjectHideFlags: 0
