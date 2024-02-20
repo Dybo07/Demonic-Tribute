@@ -2,18 +2,18 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SimplePlayerMovement : MonoBehaviour
+public class Playermovement : MonoBehaviour
 {
     public float vert;
     public float hori;
     public Vector3 dir;
     public float speed;
-    //test
+
     // Start is called before the first frame update
     void Start()
     {
         speed = 5;
-        
+
     }
 
     // Update is called once per frame
@@ -33,5 +33,6 @@ public class SimplePlayerMovement : MonoBehaviour
         {
             speed = 5;
         }
+
     }
 }
