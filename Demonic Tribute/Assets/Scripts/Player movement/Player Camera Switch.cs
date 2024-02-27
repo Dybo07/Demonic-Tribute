@@ -8,6 +8,7 @@ public class PlayerCameraSwitch : MonoBehaviour
 {
     public GameObject camFP;
     public GameObject camTP;
+    public GameObject player;
     public bool cameraSwitch;
 
     // Start is called before the first frame update
@@ -29,21 +30,21 @@ public class PlayerCameraSwitch : MonoBehaviour
         {
             camFP.SetActive(true);
             camTP.SetActive(false);
-            GetComponent<FirstPersonCamera>().enabled = true;
-           // GetComponent<ThirdPersonCamera>().enabled = false;
-            GetComponent<Firstpersonmovement>().enabled = true;
-          //  GetComponent<ThirdPersoonmovement>().enabled = false;
             cameraSwitch = true;
+
+            GetComponent<ThirdPersoonCameraRotation>().enabled = false;
+            player.GetComponent<FirstPersonCamera>().enabled = true;
+            player.GetComponent<Firstpersonmovement>().enabled = true;
         }
         else if (Input.GetButtonDown("CamSwitch") && cameraSwitch == true)
         {
             camFP.SetActive(false);
             camTP.SetActive(true);
-            GetComponent<FirstPersonCamera>().enabled = false;
-          //  GetComponent<ThirdPersonCamera>().enabled = true;
-            GetComponent<Firstpersonmovement>().enabled = false;
-          //  GetComponent<ThirdPersoonmovement>().enabled = true;
             cameraSwitch = false;
+
+            GetComponent<ThirdPersoonCameraRotation>().enabled = true;
+            player.GetComponent<FirstPersonCamera>().enabled = false;
+            player.GetComponent<Firstpersonmovement>().enabled = false;
         }
 
     }
