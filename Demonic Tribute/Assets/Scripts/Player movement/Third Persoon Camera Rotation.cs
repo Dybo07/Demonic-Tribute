@@ -33,5 +33,10 @@ public class ThirdPersoonCameraRotation : MonoBehaviour
 
         }
 
+        if (inputDir != Vector3.zero)
+        {
+            playerObj.transform.position = Vector3.forward * Time.deltaTime * rotationSpeed;
+
+        }
     }
 }
