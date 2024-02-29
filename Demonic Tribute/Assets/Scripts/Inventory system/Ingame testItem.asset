@@ -10,5 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 54771e0b4ccf3dc4cb1388d589d97fd2, type: 3}
-  m_Name: New Item
+  m_Name: Ingame testItem
   m_EditorClassIdentifier: 
+  name: TestItem_01
+  id: Test_01
+  itemWeigth: 1

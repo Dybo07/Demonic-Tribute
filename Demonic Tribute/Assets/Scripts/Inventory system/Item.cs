@@ -2,14 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu]
+[CreateAssetMenu(fileName = "Ingame Item", menuName = "Ingame item")]
 public class Item : ScriptableObject
 {
-    public string idfk = "bruh";
-    public void Start()
-    {
-        
-    }
+    public new string name;
+    public string id;
 
+    public int itemWeigth;
 
 }
