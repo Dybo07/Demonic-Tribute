@@ -10,4 +10,5 @@ public class Item : ScriptableObject
 
     public int itemWeigth;
 
+    public Sprite icon;
 }

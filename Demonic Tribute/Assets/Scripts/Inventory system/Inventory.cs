@@ -2,8 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Inventory : MonoBehaviour
+[CreateAssetMenu(fileName = "Inventory", menuName = "Inventory")]
+public class Inventory : ScriptableObject
 {
-    public IDictionary<string, int> items = new Dictionary<string, int>();
+    public List<Item> items = new List<Item>();
 
 }

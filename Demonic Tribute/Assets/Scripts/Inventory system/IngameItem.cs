@@ -14,12 +14,6 @@ public class IngameItem : MonoBehaviour
 
     private void OnCollisionEnter(Collision hitInfo)
     {
-        if (hitInfo.gameObject.CompareTag("Player")) 
-        {
-            Debug.Log("item collided with player.");
-            //FindObjectOfType<Inventory>().items.Add(item.id, item.itemWeigth);
-            playerInventory.GetComponent<Inventory>().items.Add(item.id, item.itemWeigth);
-            //Debug.Log(inventory.GetComponent<Inventory>().items);
-        }
+       
     }
 }

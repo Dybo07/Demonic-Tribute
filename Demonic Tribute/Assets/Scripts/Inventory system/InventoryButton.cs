@@ -6,7 +6,8 @@ using UnityEngine.EventSystems;
 
 public class InventoryButton : MonoBehaviour, IPointerClickHandler
 {
-    public GameObject item;
+    public Item item;
+    public GameObject inventory;
     public void OnPointerClick(PointerEventData eventData)
     {
         AddItem();
@@ -15,5 +16,7 @@ public class InventoryButton : MonoBehaviour, IPointerClickHandler
     public void AddItem() 
     {
         Debug.Log("Added item");
+        inventory.GetComponent<Inventory>().items.Add(item);
+        Debug.Log(inventory.GetComponent<Inventory>().items.Count);
     }
 }
