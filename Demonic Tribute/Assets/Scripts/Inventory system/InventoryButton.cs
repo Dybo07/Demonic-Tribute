@@ -16,10 +16,7 @@ public class InventoryButton : MonoBehaviour, IPointerClickHandler
 
     public void OnPointerClick(PointerEventData eventData)
     {
+        Debug.Log("Bababooey");
         inventory.AddItem(item);
-        for (int i = 0; i > inventory.items.Count; i++) 
-        {
-            Debug.Log(inventory.items);
-        }
     }
 }

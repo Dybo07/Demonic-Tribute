@@ -771,7 +771,7 @@ GameObject:
   - component: {fileID: 476440367}
   - component: {fileID: 476440366}
   - component: {fileID: 476440368}
-  - component: {fileID: 476440370}
+  - component: {fileID: 476440369}
   m_Layer: 5
   m_Name: Grid
   m_TagString: Untagged
@@ -878,7 +878,7 @@ MonoBehaviour:
   m_Spacing: {x: 47, y: 80}
   m_Constraint: 0
   m_ConstraintCount: 7
---- !u!114 &476440370
+--- !u!114 &476440369
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -887,11 +887,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 476440363}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4ba02d772770964882adca2acd8cdc7, type: 3}
+  m_Script: {fileID: 11500000, guid: ac0bbbda86ce05641b6fd3abaf1359d5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerinv: {fileID: 11400000, guid: e5fa75004dcef7a49be78ed5ff4ff956, type: 2}
-  item: {fileID: 680834922}
+  items: []
+  item: {fileID: 11400000, guid: 1576ed1d5ef726346a197fa6d180fd7e, type: 2}
 --- !u!1 &583332143
 GameObject:
   m_ObjectHideFlags: 0
