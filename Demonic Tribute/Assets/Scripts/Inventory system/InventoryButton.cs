@@ -2,21 +2,24 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
 
 public class InventoryButton : MonoBehaviour, IPointerClickHandler
 {
+    public Inventory inventory;
     public Item item;
-    public GameObject inventory;
-    public void OnPointerClick(PointerEventData eventData)
+    public void Start()
     {
-        AddItem();
+
     }
 
-    public void AddItem() 
+    public void OnPointerClick(PointerEventData eventData)
     {
-        Debug.Log("Added item");
-        inventory.GetComponent<Inventory>().items.Add(item);
-        Debug.Log(inventory.GetComponent<Inventory>().items.Count);
+        inventory.AddItem(item);
+        for (int i = 0; i > inventory.items.Count; i++) 
+        {
+            Debug.Log(inventory.items);
+        }
     }
 }

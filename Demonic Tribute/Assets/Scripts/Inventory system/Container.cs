@@ -8,16 +8,10 @@ public class Container : MonoBehaviour
 {
 
     public Inventory playerinv;
-
+    public Item item;
     
-
-    void Start()
+    public void AddItem(Item item) 
     {
-       
-    }
-
-    void Update()
-    {
-        
+        playerinv.items.Add(item);
     }
 }

@@ -6,7 +6,7 @@ public class IngameItem : MonoBehaviour
 {
     public Item item;
 
-    public GameObject playerInventory;
+    public Inventory inventory;
 
     void Start()
     {
@@ -14,6 +14,9 @@ public class IngameItem : MonoBehaviour
 
     private void OnCollisionEnter(Collision hitInfo)
     {
-       
+        if (hitInfo.gameObject.CompareTag("Player"))
+        {
+            Debug.Log("Bababooey");
+        }
     }
 }
