@@ -15,3 +15,4 @@ MonoBehaviour:
   name: TestItem_01
   id: Test_01
   itemWeigth: 1
+  icon: {fileID: 10901, guid: 0000000000000000f000000000000000, type: 0}
