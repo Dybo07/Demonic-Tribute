@@ -6,46 +6,55 @@ using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 
-public class InventoryButton : MonoBehaviour, IPointerClickHandler
+public class InventoryButton : MonoBehaviour, IPointerClickHandler, IDragHandler, IDropHandler
 {
     public Inventory inventory;
     public Item item;
     public int btnIndex;
-
-    //public Sprite itemSprite;
-    //public Sprite slotImage;
-    //public Sprite defaultSprite;
-
     public bool isClicked = false;
-    public void Start()
-    {
-        //defaultSprite = slotImage;
-        //itemSprite = item.icon;
-    }
+    public RawImage itemSprite;
 
-    public int buttonIndex() 
+    public void Update()
     {
-        return btnIndex;
+        if (item != null)
+        {
+            itemSprite.gameObject.SetActive(true);
+            itemSprite.texture = item.icon.texture;
+        }
+        else if (item == null)
+        {
+            itemSprite.gameObject.SetActive(false);
+            itemSprite.texture = null;
+        }
     }
 
     public void OnPointerClick(PointerEventData eventData)
     {
-        
         if (isClicked == false)
         {
             inventory.AddItem(item);
-            //idfk
-            //slotImage = itemSprite;
-            //gameObject.GetComponent<RawImage>().texture = slotImage;
             isClicked = !isClicked;
         }
-        else if (isClicked == true) 
+        else if (isClicked == true)
         {
             inventory.DelItem(item);
-            //idfk
-            //slotImage = defaultSprite;
             isClicked = !isClicked;
         }
-        
+    }
+
+    public void OnDrag(PointerEventData eventData)
+    {
+        if (eventData.pointerDrag != null) 
+        {
+            Debug.Log("Bababooey");
+        }
+    }
+
+    public void OnDrop(PointerEventData eventData)
+    {
+        if (Event.current != null)
+        {
+            Debug.Log("Bababooey");
+        }
     }
 }

@@ -1,12 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
-public class IngameItem : MonoBehaviour
+public class IngameItem : MonoBehaviour, IPointerDownHandler
 {
     public Item item;
-
-    public Inventory inventory;
 
     void Start()
     {
@@ -17,6 +17,15 @@ public class IngameItem : MonoBehaviour
         if (hitInfo.gameObject.CompareTag("Player"))
         {
             Debug.Log("Bababooey");
+        }
+    }
+
+    public void OnPointerDown(PointerEventData eventData)
+    {
+        if (eventData.pointerDrag != null) 
+        {
+            Debug.Log("I am being draged whaaaaaaa!!!!!!!!11 ):");
+            transform.position = eventData.position;
         }
     }
 }
