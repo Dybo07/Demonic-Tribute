@@ -1,31 +1,22 @@
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.EventSystems;
 
-public class IngameItem : MonoBehaviour, IPointerDownHandler
+public class IngameItem : MonoBehaviour
 {
+
     public Item item;
+    public InvManager invManager;
+    
+    public bool isPickedUp = false;
 
-    void Start()
+    public void OnCollisionEnter(Collision hitInfo)
     {
-    }
-
-    private void OnCollisionEnter(Collision hitInfo)
-    {
-        if (hitInfo.gameObject.CompareTag("Player"))
+        if (hitInfo.gameObject.CompareTag("Player") && isPickedUp == false) 
         {
-            Debug.Log("Bababooey");
-        }
-    }
-
-    public void OnPointerDown(PointerEventData eventData)
-    {
-        if (eventData.pointerDrag != null) 
-        {
-            Debug.Log("I am being draged whaaaaaaa!!!!!!!!11 ):");
-            transform.position = eventData.position;
+            isPickedUp = true;
+            invManager.AddItem(item);
+            Destroy(gameObject);
         }
     }
 }
