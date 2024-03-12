@@ -11,6 +11,14 @@ public class InventoryItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
     public Transform parentAfterDrag;
     //ScriptableObject item
     public Item item;
+    public GameObject droppedItem;
+    public GameObject inGameItemPrefab;
+    public GameObject dropPoint;
+
+    public void Start()
+    {
+        dropPoint = GameObject.Find("DropPoint");
+    }
 
     public void Init_Item(Item newItem)
     {
@@ -33,6 +41,10 @@ public class InventoryItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
     public void OnEndDrag(PointerEventData eventData)
     {
         image.raycastTarget = true;
-        transform.SetParent(parentAfterDrag);
+        if (gameObject.transform.parent.name == "Canvas")
+        {
+            Destroy(gameObject);
+            droppedItem = Instantiate(inGameItemPrefab, dropPoint.transform.position, Quaternion.identity);
+        }
     }
 }

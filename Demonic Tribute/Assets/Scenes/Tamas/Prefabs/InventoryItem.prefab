@@ -91,3 +91,7 @@ MonoBehaviour:
   image: {fileID: 950924418414821260}
   parentAfterDrag: {fileID: 0}
   item: {fileID: 11400000, guid: 03aeebe971b4bb6409e69ffbd747927e, type: 2}
+  droppedItem: {fileID: 0}
+  inGameItemPrefab: {fileID: 3258284374373954884, guid: de94aa1cf15d6e34392dc0cc91a5b90a,
+    type: 3}
+  DropPoint: {fileID: 0}

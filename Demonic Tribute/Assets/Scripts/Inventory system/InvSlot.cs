@@ -10,7 +10,7 @@ public class InvSlot : MonoBehaviour, IDropHandler
         if (transform.childCount == 0)
         {
             InventoryItem invItem = eventData.pointerDrag.GetComponent<InventoryItem>();
-            invItem.parentAfterDrag = transform;
+            invItem.transform.SetParent(gameObject.transform);
         }
     }
 }

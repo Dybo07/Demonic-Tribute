@@ -10,6 +10,11 @@ public class IngameItem : MonoBehaviour
     
     public bool isPickedUp = false;
 
+    public void Start()
+    {
+        invManager = FindAnyObjectByType<InvManager>();
+    }
+
     public void OnCollisionEnter(Collision hitInfo)
     {
         if (hitInfo.gameObject.CompareTag("Player") && isPickedUp == false) 
