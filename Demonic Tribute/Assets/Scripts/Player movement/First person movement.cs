@@ -4,13 +4,16 @@ using UnityEngine;
 
 public class Firstpersonmovement : MonoBehaviour
 {
+    [Header("Movement variables")]
     public float vert;
     public float hori;
     public Vector3 dir;
     public float speed;
     
     public Rigidbody rb;
-    public int jumpForce;
+
+    public float jumpForce;
+    public bool grounded;
 
     // Start is called before the first frame update
     void Start()
@@ -24,6 +27,7 @@ public class Firstpersonmovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
         //Movement script
         hori = Input.GetAxis("Horizontal");
         vert = Input.GetAxis("Vertical");
@@ -40,12 +44,27 @@ public class Firstpersonmovement : MonoBehaviour
             speed = 5;
         }
 
+
         //Jump script
-        if (Input.GetButtonDown("Jump"))
+        if (grounded == true && Input.GetButton("Jump"))
         {
-            rb.AddForce(Vector3.up * jumpForce);
-
+            rb.AddForce(transform.up * jumpForce);
+            grounded = false;
         }
+    }
 
+    private void OnCollisionStay(Collision beanCollision)
+    {
+
+        if(beanCollision.gameObject.CompareTag ("Ground"))
+        {
+            grounded = true;
+        }
+        
+    }
+    private void OnCollisionExit(Collision collision)
+    {
+        grounded = false;
+        
     }
 }

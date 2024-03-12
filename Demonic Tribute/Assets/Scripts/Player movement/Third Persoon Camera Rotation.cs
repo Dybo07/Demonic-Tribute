@@ -7,7 +7,6 @@ public class ThirdPersoonCameraRotation : MonoBehaviour
     public Transform orientation;
     public Transform player;
     public Transform playerObj;
-    public Rigidbody rb;
 
     public float rotationSpeed;
     // Start is called before the first frame update
@@ -33,10 +32,5 @@ public class ThirdPersoonCameraRotation : MonoBehaviour
 
         }
 
-        if (inputDir != Vector3.zero)
-        {
-            playerObj.transform.position = Vector3.forward * Time.deltaTime * rotationSpeed;
-
-        }
     }
 }
