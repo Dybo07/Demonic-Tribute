@@ -1,14 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class InvManager : MonoBehaviour
 {
     public InvSlot[] invSlots;
     public Item item;
-    public GameObject InvItemPrefab;
-    public GameObject inventoryGroup;
 
+    public GameObject InvItemPrefab;
+    public GameObject inGameItemPrefab;
+    public GameObject inventoryGroup;
     public GameObject player;
 
     public bool toggleActive = false;
@@ -67,5 +69,6 @@ public class InvManager : MonoBehaviour
             inventoryGroup.SetActive(toggleActive);
             Cursor.lockState = CursorLockMode.None;
         }
+        
     }
 }

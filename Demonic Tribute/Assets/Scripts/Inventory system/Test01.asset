@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Test01
   m_EditorClassIdentifier: 
   name: Test1
-  id: 1
+  id: Test_01
   itemWeigth: 1
   icon: {fileID: 10911, guid: 0000000000000000f000000000000000, type: 0}
