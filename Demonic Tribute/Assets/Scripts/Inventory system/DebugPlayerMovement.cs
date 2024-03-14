@@ -16,6 +16,10 @@ public class DebugPlayerMovement : MonoBehaviour
     public Vector3 moveDir;
 
     public GameObject cam;
+    public InvManager invManager;
+
+    public RaycastHit hit;
+
 
     public void Update()
     {
@@ -35,6 +39,16 @@ public class DebugPlayerMovement : MonoBehaviour
         transform.Rotate(rotDir);
         cam.transform.Rotate(camRotDir);
 
+        /* if (Input.GetMouseButtonDown(0)) 
+        {
+            if (Physics.Raycast(gameObject.transform.position, gameObject.transform.forward, out hit ,1000)) 
+            {
+                if (hit.collider.gameObject.CompareTag("Altar")) 
+                {
+                    
+                }
+            }
+        } */
     }
 
     public void Start()

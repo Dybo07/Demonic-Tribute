@@ -44,7 +44,7 @@ public class InventoryItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
         if (gameObject.transform.parent.name == "Canvas")
         {
             Destroy(gameObject);
-            droppedItem = Instantiate(inGameItemPrefab, dropPoint.transform.position, Quaternion.identity);
+            //droppedItem = Instantiate(inGameItemPrefab, dropPoint.transform.position, Quaternion.identity);
         }
     }
 }

@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.Experimental.Rendering;
 
 public class InvManager : MonoBehaviour
 {
@@ -13,8 +14,14 @@ public class InvManager : MonoBehaviour
     public GameObject inventoryGroup;
     public GameObject player;
 
+    public RaycastHit hit;
+
     public bool toggleActive = false;
     public bool isOpen = false;
+
+    public float reach = 10;
+
+    public int score;
 
     //adds item from outside the game to inventory
     public void AddItem(Item item) 
@@ -69,6 +76,25 @@ public class InvManager : MonoBehaviour
             inventoryGroup.SetActive(toggleActive);
             Cursor.lockState = CursorLockMode.None;
         }
-        
+
+        if (Input.GetMouseButtonDown(0)) 
+        {
+            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            if (Physics.Raycast(ray, out hit ,reach)) 
+            {
+                if (hit.collider.gameObject.CompareTag("Altar")) 
+                {
+                    for (int i = 0; i < invSlots.Length; i++)
+                    {
+                        if (invSlots[i].transform.childCount != 0) 
+                        {
+                            Destroy(invSlots[i].GetComponentInChildren<InventoryItem>().gameObject);
+                            score++;
+                            break;
+                        }
+                    }
+                }
+            }
+        }
     }
 }
