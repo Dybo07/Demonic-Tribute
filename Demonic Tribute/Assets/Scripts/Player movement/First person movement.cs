@@ -15,12 +15,17 @@ public class Firstpersonmovement : MonoBehaviour
     public float jumpForce;
     public bool grounded;
 
+    public float dashForce;
+    public bool dashBool; //= false;
+
     // Start is called before the first frame update
     void Start()
     {
         speed = 5;
 
-        jumpForce = 10;
+        jumpForce = 100;
+
+        dashForce = 400;
 
     }
 
@@ -44,11 +49,17 @@ public class Firstpersonmovement : MonoBehaviour
             speed = 5;
         }
 
+        if (Input.GetMouseButtonDown(1) && dashBool == true)
+        {
+            dashBool = false;
+            rb.AddForce(transform.forward * dashForce);
+            
+        }
 
         //Jump script
         if (grounded == true && Input.GetButton("Jump"))
         {
-            rb.AddForce(transform.up * jumpForce);
+            rb.AddForce(transform.up * jumpForce,ForceMode.Force);
             grounded = false;
         }
     }
