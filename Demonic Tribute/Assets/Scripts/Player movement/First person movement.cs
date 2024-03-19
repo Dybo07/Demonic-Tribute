@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Firstpersonmovement : MonoBehaviour
 {
+    public static Firstpersonmovement instance;
+
     [Header("Movement variables")]
     public float vert;
     public float hori;
@@ -12,21 +14,35 @@ public class Firstpersonmovement : MonoBehaviour
     
     public Rigidbody rb;
 
+    [Header("Jump variables")]
     public float jumpForce;
     public bool grounded;
 
+    [Header("Dash variables")]
     public float dashForce;
-    public bool dashBool; //= false;
+    public bool dashBool = false;
+    public float dashDelay;
 
     // Start is called before the first frame update
     void Start()
     {
+        if (instance == null)
+        {
+            instance = this;
+        }
+
         speed = 5;
 
         jumpForce = 100;
 
         dashForce = 400;
+        dashDelay = 5;
 
+    }
+    public IEnumerator DashCoolDown()
+    {
+        yield return new WaitForSeconds(dashDelay);
+        dashBool = true;
     }
 
     // Update is called once per frame
@@ -48,12 +64,12 @@ public class Firstpersonmovement : MonoBehaviour
         {
             speed = 5;
         }
-
+        //Dash Script
         if (Input.GetMouseButtonDown(1) && dashBool == true)
         {
             dashBool = false;
             rb.AddForce(transform.forward * dashForce);
-            
+            StartCoroutine(DashCoolDown());
         }
 
         //Jump script
@@ -62,6 +78,8 @@ public class Firstpersonmovement : MonoBehaviour
             rb.AddForce(transform.up * jumpForce,ForceMode.Force);
             grounded = false;
         }
+
+        //Inventory inputs
     }
 
     private void OnCollisionStay(Collision beanCollision)

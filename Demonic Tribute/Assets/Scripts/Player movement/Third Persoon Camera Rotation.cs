@@ -9,10 +9,17 @@ public class ThirdPersoonCameraRotation : MonoBehaviour
     public Transform playerObj;
 
     public float rotationSpeed;
+
+    public float hori;
+    public float vert;
+    public Vector3 dir;
+    public float speed;
     // Start is called before the first frame update
     void Start()
     {
         rotationSpeed = 5;
+
+        speed = 5;
 
     }
 
@@ -22,13 +29,14 @@ public class ThirdPersoonCameraRotation : MonoBehaviour
         Vector3 viewDir = player.position - new Vector3(transform.position.x, player.position.y, transform.position.z);
         orientation.forward = viewDir.normalized;
 
-        float horizontalInput = Input.GetAxis("Horizontal");
-        float verticalInput = Input.GetAxis("Vertical");
-        Vector3 inputDir = orientation.forward * verticalInput + orientation.right * horizontalInput;
+        hori = Input.GetAxis("Horizontal");
+        vert = Input.GetAxis("Vertical");
+        transform.Translate(dir * speed * Time.deltaTime);
+        dir = orientation.forward * vert + orientation.right * hori;
 
-        if (inputDir != Vector3.zero)
+        if (dir != Vector3.zero)
         {
-            playerObj.forward = Vector3.Slerp(playerObj.forward, inputDir.normalized, Time.deltaTime * rotationSpeed);
+            playerObj.forward = Vector3.Slerp(playerObj.forward, dir.normalized, Time.deltaTime * rotationSpeed);
 
         }
 
