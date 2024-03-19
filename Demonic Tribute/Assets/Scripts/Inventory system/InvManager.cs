@@ -59,21 +59,6 @@ public class InvManager : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.E)) 
         {
-            isOpen = !isOpen;
-            if (isOpen)
-            {
-                Cursor.lockState = CursorLockMode.Confined;
-                Cursor.visible = true;
-                player.GetComponent<DebugPlayerMovement>().mouseSens = 0;
-                player.GetComponent<DebugPlayerMovement>().speed = 0;
-            }
-            else 
-            {
-                Cursor.lockState = CursorLockMode.Locked;
-                Cursor.visible = false;
-                player.GetComponent<DebugPlayerMovement>().speed = 5;
-                player.GetComponent<DebugPlayerMovement>().mouseSens = 400f;
-            }
             toggleActive = !toggleActive;
             inventoryGroup.SetActive(toggleActive);
             Cursor.lockState = CursorLockMode.None;
