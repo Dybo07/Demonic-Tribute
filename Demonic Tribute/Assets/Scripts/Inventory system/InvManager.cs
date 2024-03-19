@@ -57,32 +57,12 @@ public class InvManager : MonoBehaviour
 
     public void Update()
     {
-        if (Input.GetButtonDown("tab")) 
+        if (Input.GetButtonDown("tab"))
         {
             toggleActive = !toggleActive;
             inventoryGroup.SetActive(toggleActive);
-            Cursor.visible = true;
+            Cursor.visible = toggleActive;
             Cursor.lockState = CursorLockMode.None;
         }
-
-        /* if (Input.GetMouseButtonDown(0)) 
-        {
-            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-            if (Physics.Raycast(ray, out hit ,reach)) 
-            {
-                if (hit.collider.gameObject.CompareTag("Altar")) 
-                {
-                    for (int i = 0; i < invSlots.Length; i++)
-                    {
-                        if (invSlots[i].transform.childCount != 0) 
-                        {
-                            Destroy(invSlots[i].GetComponentInChildren<InventoryItem>().gameObject);
-                            score++;
-                            break;
-                        }
-                    }
-                }
-            }
-        } */
     }
 }

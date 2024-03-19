@@ -9,7 +9,7 @@ public class OfferItem : MonoBehaviour
     public InvManager invManager;
     public InvSlot[] invSlots;
 
-    public float reach = 100f;
+    public float reach = 1f;
     public int offerCount = 0;
     public RaycastHit rayHit;
 

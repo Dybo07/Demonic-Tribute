@@ -42,7 +42,7 @@ public class InventoryItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
     public void OnEndDrag(PointerEventData eventData)
     {
         image.raycastTarget = true;
-        if (gameObject.transform.parent.name == "Canvas")
+        if (gameObject.transform.parent.name == "Inventory")
         {
             Destroy(gameObject);
         }
