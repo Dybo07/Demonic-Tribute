@@ -18,6 +18,7 @@ public class InvManager : MonoBehaviour
 
     public bool toggleActive = false;
     public bool isOpen = false;
+    public bool isFull = false; 
 
     public float reach = 10;
 
@@ -38,6 +39,7 @@ public class InvManager : MonoBehaviour
                 return;
             }
         }
+        return;
     }
 
     //spawns item inside inventory by retrieving an item from AddItem function.
