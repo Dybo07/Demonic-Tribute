@@ -57,10 +57,12 @@ public class InvManager : MonoBehaviour
 
     public void Update()
     {
-        if (Input.GetKeyDown(KeyCode.E)) 
+        if (Input.GetButtonDown("tab")) 
         {
             toggleActive = !toggleActive;
             inventoryGroup.SetActive(toggleActive);
+            Cursor.visible = true;
+            Cursor.lockState = CursorLockMode.None;
         }
 
         /* if (Input.GetMouseButtonDown(0)) 

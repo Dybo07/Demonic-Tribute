@@ -652,11 +652,10 @@ MonoBehaviour:
   - {fileID: 6732285964164750924}
   - {fileID: 4144095948839674592}
   - {fileID: 5421682484458533256}
-  item: {fileID: 11400000, guid: 7b83a57634b282040bd5094ba1a50ba2, type: 2}
+  item: {fileID: 11400000, guid: 03aeebe971b4bb6409e69ffbd747927e, type: 2}
   InvItemPrefab: {fileID: 205111953439079092, guid: 80a0dc7d25735964c8902cafe9e82d95,
     type: 3}
-  inGameItemPrefab: {fileID: 3258284374373954884, guid: de94aa1cf15d6e34392dc0cc91a5b90a,
-    type: 3}
+  inGameItemPrefab: {fileID: 0}
   inventoryGroup: {fileID: 4507808263513332810}
   player: {fileID: 0}
   toggleActive: 0
