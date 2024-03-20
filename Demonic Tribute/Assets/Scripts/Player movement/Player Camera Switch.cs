@@ -34,7 +34,7 @@ public class PlayerCameraSwitch : MonoBehaviour
             camTP.SetActive(false);
             cameraSwitch = !cameraSwitch;
 
-            //GetComponent<ThirdPersoonCameraRotation>().enabled = false;
+            player.GetComponent<ThirdPersoonCameraRotation>().enabled = false;
             player.GetComponent<FirstPersonCamera>().enabled = true;
             player.GetComponent<Firstpersonmovement>().enabled = true;
         }
@@ -44,7 +44,7 @@ public class PlayerCameraSwitch : MonoBehaviour
             camTP.SetActive(true);
             cameraSwitch = !cameraSwitch;
 
-            //GetComponent<ThirdPersoonCameraRotation>().enabled = true;
+            player.GetComponent<ThirdPersoonCameraRotation>().enabled = true;
             player.GetComponent<FirstPersonCamera>().enabled = false;
             player.GetComponent<Firstpersonmovement>().enabled = false;
         }
@@ -55,7 +55,7 @@ public class PlayerCameraSwitch : MonoBehaviour
             Cursor.lockState = CursorLockMode.Confined;
             Cursor.visible = true;
             inventoryOpen = !inventoryOpen;
-           // GetComponent<ThirdPersoonCameraRotation>().enabled = false;
+            player.GetComponent<ThirdPersoonCameraRotation>().enabled = false;
             player.GetComponent<FirstPersonCamera>().enabled = false;
             player.GetComponent<Firstpersonmovement>().enabled = false;
         }
@@ -65,7 +65,7 @@ public class PlayerCameraSwitch : MonoBehaviour
             Cursor.visible = false;
             inventoryOpen = !inventoryOpen;
 
-           // GetComponent<ThirdPersoonCameraRotation>().enabled = true;
+            player.GetComponent<ThirdPersoonCameraRotation>().enabled = true;
             player.GetComponent<FirstPersonCamera>().enabled = true;
             player.GetComponent<Firstpersonmovement>().enabled = true;
         }

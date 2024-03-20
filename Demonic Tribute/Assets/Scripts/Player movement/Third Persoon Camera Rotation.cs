@@ -4,8 +4,9 @@ using UnityEngine;
 
 public class ThirdPersoonCameraRotation : MonoBehaviour
 {
+    public Rigidbody rb;
     public Transform orientation;
-    public Transform player;
+    public Transform tPCAM;
     public Transform playerObj;
 
     public float rotationSpeed;
@@ -13,7 +14,17 @@ public class ThirdPersoonCameraRotation : MonoBehaviour
     public float hori;
     public float vert;
     public Vector3 dir;
+    public Vector3 dirMov;
     public float speed;
+
+    [Header("Jump variables")]
+    public float jumpForce;
+    public bool grounded;
+
+    [Header("Dash variables")]
+    public float dashForce;
+    public bool dashBool = false;
+    public float dashDelay;
     // Start is called before the first frame update
     void Start()
     {
@@ -21,18 +32,29 @@ public class ThirdPersoonCameraRotation : MonoBehaviour
 
         speed = 5;
 
+        jumpForce = 100;
+        grounded = true;
+
+        dashForce = 400;
+        dashDelay = 5;
+    }
+    public IEnumerator DashCoolDown()
+    {
+        yield return new WaitForSeconds(dashDelay);
+        dashBool = true;
     }
 
     // Update is called once per frame
     void Update()
     {
-        Vector3 viewDir = player.position - new Vector3(transform.position.x, player.position.y, transform.position.z);
+        Vector3 viewDir = transform.position - new Vector3(tPCAM.position.x, transform.position.y, tPCAM.position.z);
         orientation.forward = viewDir.normalized;
 
         hori = Input.GetAxis("Horizontal");
         vert = Input.GetAxis("Vertical");
-        transform.Translate(dir * speed * Time.deltaTime);
         dir = orientation.forward * vert + orientation.right * hori;
+        
+        //transform.Translate(orientation.forward * speed * Time.deltaTime);
 
         if (dir != Vector3.zero)
         {
@@ -40,5 +62,35 @@ public class ThirdPersoonCameraRotation : MonoBehaviour
 
         }
 
+
+
+        //Dash Script
+        if (Input.GetMouseButtonDown(1) && dashBool == true)
+        {
+            dashBool = false;
+            rb.AddForce(playerObj.forward * dashForce);
+            StartCoroutine(DashCoolDown());
+        }
+
+        //Jump script
+        if (grounded == true && Input.GetButton("Jump"))
+        {
+            rb.AddForce(transform.up * jumpForce, ForceMode.Force);
+            grounded = false;
+        }
+
+    }
+    private void OnCollisionStay(Collision beanCollision)
+    {
+
+        if (beanCollision.gameObject.CompareTag("Ground"))
+        {
+            grounded = true;
+        }
+
+    }
+    private void OnCollisionExit(Collision collision)
+    {
+        grounded = false;
     }
 }

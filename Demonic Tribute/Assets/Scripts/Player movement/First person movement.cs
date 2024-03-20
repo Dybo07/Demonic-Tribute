@@ -4,15 +4,13 @@ using UnityEngine;
 
 public class Firstpersonmovement : MonoBehaviour
 {
-    public static Firstpersonmovement instance;
+    public Rigidbody rb;
 
     [Header("Movement variables")]
     public float vert;
     public float hori;
     public Vector3 dir;
     public float speed;
-    
-    public Rigidbody rb;
 
     [Header("Jump variables")]
     public float jumpForce;
@@ -26,14 +24,11 @@ public class Firstpersonmovement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        if (instance == null)
-        {
-            instance = this;
-        }
 
         speed = 5;
 
         jumpForce = 100;
+        grounded = true;
 
         dashForce = 400;
         dashDelay = 5;
@@ -79,7 +74,6 @@ public class Firstpersonmovement : MonoBehaviour
             grounded = false;
         }
 
-        //Inventory inputs
     }
 
     private void OnCollisionStay(Collision beanCollision)
@@ -94,6 +88,5 @@ public class Firstpersonmovement : MonoBehaviour
     private void OnCollisionExit(Collision collision)
     {
         grounded = false;
-        
     }
 }

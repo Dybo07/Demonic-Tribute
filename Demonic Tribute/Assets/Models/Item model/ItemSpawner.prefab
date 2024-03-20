@@ -9,6 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8803359148630996776}
+  - component: {fileID: 6598147646160786237}
   - component: {fileID: 745112787579899366}
   m_Layer: 0
   m_Name: ItemSpawner
@@ -32,6 +33,27 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &6598147646160786237
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 63480987612097267}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &745112787579899366
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -44,12 +66,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f699adc47af31a04f9cdaf64aa44b15e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  numberOfItems: 0
   item1: {fileID: 6740429923728823639, guid: 411d47d1fe0e9174297c8689ba42b4c3, type: 3}
   item2: {fileID: 2401626003587500342, guid: bd8ff8913930a2546ac2e5c218cc53da, type: 3}
   item3: {fileID: 6716333220471434686, guid: 85f71f85c0704a845a1620f6db34255d, type: 3}
   item4: {fileID: 2869422996125411669, guid: 09e8e3bea10c9bd49b05d62ab9e92784, type: 3}
   item5: {fileID: 0}
+  terrain: {fileID: 0}
+  spawnCollider: {fileID: 0}
   spawnPoint: {x: 0, y: 0, z: 0}
   randomNum: 0
   randomQuaternion: {x: 0, y: 0, z: 0, w: 0}
-  randomY: 0
+  randomYRot: 0

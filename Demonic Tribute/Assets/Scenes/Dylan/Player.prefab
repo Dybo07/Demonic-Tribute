@@ -235,7 +235,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1072862533025773169}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.11559233, y: 0.000000017091043, z: -0.0000000019889257, w: 0.99329674}
+  m_LocalRotation: {x: 0.11559233, y: -0.000000017091043, z: 0.0000000019889257, w: 0.99329674}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -1086,7 +1086,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5642209452686273234}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.09252102, y: 0.000000017659858, z: -0.0000000016409465, w: 0.99571073}
+  m_LocalRotation: {x: 0.09252102, y: -0.000000017659856, z: 0.0000000016409463, w: 0.99571073}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -1160,6 +1160,7 @@ GameObject:
   - component: {fileID: 4060748989192024495}
   - component: {fileID: 9055961120150070368}
   - component: {fileID: 8003229366531794608}
+  - component: {fileID: 7770833878778059865}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -1263,16 +1264,40 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 50bd80054e0d7cc4ba90a371b3c5ba08, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rb: {fileID: 1772000515893925491}
   vert: 0
   hori: 0
   dir: {x: 0, y: 0, z: 0}
   speed: 0
-  rb: {fileID: 1772000515893925491}
   jumpForce: 0
   grounded: 0
   dashForce: 0
   dashBool: 0
   dashDelay: 0
+--- !u!114 &7770833878778059865
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8011003787929864711}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8098d36addcdd584dbc8361442dc13b1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rb: {fileID: 1772000515893925491}
+  orientation: {fileID: 5396870965803791457}
+  tPCAM: {fileID: 778327519929460805}
+  playerObj: {fileID: 1294706206798066503}
+  rotationSpeed: 0
+  hori: 0
+  vert: 0
+  dir: {x: 0, y: 0, z: 0}
+  dirMov: {x: 0, y: 0, z: 0}
+  speed: 0
+  jumpForce: 0
+  grounded: 1
 --- !u!1 &8023939203635241252
 GameObject:
   m_ObjectHideFlags: 0
@@ -1285,7 +1310,6 @@ GameObject:
   - component: {fileID: 5277206350202938485}
   - component: {fileID: 6161114889458805740}
   - component: {fileID: 8944214648307893160}
-  - component: {fileID: 6595062006657523172}
   m_Layer: 0
   m_Name: Third Person Camera
   m_TagString: Untagged
@@ -1470,23 +1494,3 @@ MonoBehaviour:
   player: {fileID: 8011003787929864711}
   cameraSwitch: 0
   inventoryOpen: 0
---- !u!114 &6595062006657523172
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8023939203635241252}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8098d36addcdd584dbc8361442dc13b1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  orientation: {fileID: 5396870965803791457}
-  player: {fileID: 6001070123935266418}
-  playerObj: {fileID: 1294706206798066503}
-  rotationSpeed: 0
-  hori: 0
-  vert: 0
-  dir: {x: 0, y: 0, z: 0}
-  speed: 0
