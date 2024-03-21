@@ -9,6 +9,7 @@ public class PlayerCameraSwitch : MonoBehaviour
     public GameObject camFP;
     public GameObject camTP;
     public GameObject player;
+    public Transform playerObj;
     public bool cameraSwitch;
 
     public bool inventoryOpen;
@@ -28,6 +29,7 @@ public class PlayerCameraSwitch : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
         if (Input.GetButtonDown("CamSwitch") && cameraSwitch == false && inventoryOpen == false)
         {
             camFP.SetActive(true);
@@ -38,6 +40,9 @@ public class PlayerCameraSwitch : MonoBehaviour
             player.GetComponent<ThirdPersoonCameraRotation>().enabled = false;
             player.GetComponent<FirstPersonCamera>().enabled = true;
             player.GetComponent<Firstpersonmovement>().enabled = true;
+
+            player.GetComponent<Transform>().rotation = playerObj.rotation;
+            playerObj.rotation = player.GetComponent<Transform>().rotation;
         }
         else if (Input.GetButtonDown("CamSwitch") && cameraSwitch == true && inventoryOpen == false)
         {
@@ -49,6 +54,9 @@ public class PlayerCameraSwitch : MonoBehaviour
             player.GetComponent<ThirdPersoonCameraRotation>().enabled = true;
             player.GetComponent<FirstPersonCamera>().enabled = false;
             player.GetComponent<Firstpersonmovement>().enabled = false;
+
+            player.GetComponent<Transform>().rotation = playerObj.rotation;
+            playerObj.rotation = player.GetComponent<Transform>().rotation;
         }
 
         //Inventory inputs
