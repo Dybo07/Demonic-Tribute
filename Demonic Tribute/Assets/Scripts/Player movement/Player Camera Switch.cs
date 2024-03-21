@@ -16,9 +16,9 @@ public class PlayerCameraSwitch : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        camFP.SetActive(true);
-        camTP.SetActive(false);
-        cameraSwitch = true;
+        camFP.SetActive(false);
+        camTP.SetActive(true);
+        cameraSwitch = false;
 
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
@@ -32,6 +32,7 @@ public class PlayerCameraSwitch : MonoBehaviour
         {
             camFP.SetActive(true);
             camTP.SetActive(false);
+
             cameraSwitch = !cameraSwitch;
 
             player.GetComponent<ThirdPersoonCameraRotation>().enabled = false;
@@ -42,6 +43,7 @@ public class PlayerCameraSwitch : MonoBehaviour
         {
             camFP.SetActive(false);
             camTP.SetActive(true);
+
             cameraSwitch = !cameraSwitch;
 
             player.GetComponent<ThirdPersoonCameraRotation>().enabled = true;
@@ -63,6 +65,7 @@ public class PlayerCameraSwitch : MonoBehaviour
         {
             Cursor.lockState = CursorLockMode.Locked;
             Cursor.visible = false;
+
             inventoryOpen = !inventoryOpen;
 
             player.GetComponent<ThirdPersoonCameraRotation>().enabled = true;

@@ -54,7 +54,7 @@ public class ThirdPersoonCameraRotation : MonoBehaviour
         vert = Input.GetAxis("Vertical");
         dir = orientation.forward * vert + orientation.right * hori;
         
-        //transform.Translate(orientation.forward * speed * Time.deltaTime);
+        transform.Translate(dir * speed * Time.deltaTime);
 
         if (dir != Vector3.zero)
         {
@@ -62,7 +62,14 @@ public class ThirdPersoonCameraRotation : MonoBehaviour
 
         }
 
-
+        if (Input.GetButton("Sprint"))
+        {
+            speed = 10;
+        }
+        else
+        {
+            speed = 5;
+        }
 
         //Dash Script
         if (Input.GetMouseButtonDown(1) && dashBool == true)

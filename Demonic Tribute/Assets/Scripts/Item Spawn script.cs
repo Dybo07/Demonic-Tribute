@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class ItemSpawnscript : MonoBehaviour
 {
+    public static ItemSpawnscript instance;
+
     [Header("Number of items to spawn")]
     public int numberOfItems;
 
@@ -27,6 +29,11 @@ public class ItemSpawnscript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        if(instance == null) 
+        {  
+            instance = this; 
+        }
+
         spawnCollider = GetComponent<Collider>();
 
         for (int i = 0; i < numberOfItems; i++)
