@@ -2,16 +2,19 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Rendering;
+using TMPro;
 
 public class OfferItem : MonoBehaviour
 {
 
     public InvManager invManager;
     public InvSlot[] invSlots;
+    public GameObject offerIndicator;
 
     public float reach = 1f;
     public int offerCount = 0;
-    public RaycastHit rayHit;
+    public bool hasOffered = false;
+    public bool isInRange = false;
 
     // Start is called before the first frame update
     void Start()
@@ -22,25 +25,43 @@ public class OfferItem : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetMouseButtonDown(0)) 
+        if (Input.GetMouseButtonDown(0))
         {
-            if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out rayHit, reach))
+            if (isInRange && !invManager.isOpen) 
             {
-                if (rayHit.collider.gameObject.CompareTag("Altar")) 
+                for (int i = 0; i < invSlots.Length; i++)
                 {
-                    Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.forward) * rayHit.distance, Color.red);
-                    for (int i = 0; i < invSlots.Length; i++) 
+                    if (invSlots[i].transform.childCount != 0)
                     {
-                        if (invSlots[i].transform.childCount != 0) 
-                        {
-                            GameObject invItem = invSlots[i].transform.GetChild(0).gameObject;
-                            Destroy(invItem);
-                            offerCount++;
-                            break;
-                        }
+                        GameObject invItem = invSlots[i].transform.GetChild(0).gameObject;
+                        Destroy(invItem);
+                        offerCount++;
+                        break;
                     }
                 }
             }
+        }
+        else
+        {
+            hasOffered = false;
+        }
+    }
+
+    private void OnTriggerEnter(Collider col)
+    {
+        if (col.gameObject.CompareTag("Altar"))
+        {
+            isInRange = true;
+            offerIndicator.GetComponent<TMP_Text>().text = "[Left click] to offer item";
+        }
+    }
+
+    private void OnTriggerExit(Collider col)
+    {
+        isInRange = false;
+        if (col.gameObject.CompareTag("Altar")) 
+        {
+            offerIndicator.GetComponent<TMP_Text>().text = null;
         }
     }
 }

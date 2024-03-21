@@ -15,7 +15,6 @@ public class InventoryItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
     public GameObject inGameItemPrefab;
     public GameObject dropPoint;
     public InvManager invManager;
-
     public void Start()
     {
         dropPoint = GameObject.Find("DropPoint");

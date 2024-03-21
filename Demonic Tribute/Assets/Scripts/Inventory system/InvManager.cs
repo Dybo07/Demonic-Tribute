@@ -59,6 +59,7 @@ public class InvManager : MonoBehaviour
     {
         if (Input.GetButtonDown("tab"))
         {
+            isOpen = !isOpen;
             toggleActive = !toggleActive;
             inventoryGroup.SetActive(toggleActive);
             Cursor.visible = toggleActive;

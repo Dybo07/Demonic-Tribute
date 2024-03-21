@@ -13,6 +13,7 @@ public class ScoreManager : MonoBehaviour
     public OfferItem offerItem;
 
     public TMP_Text offerInfo;
+    public GameObject offerIndicator;
 
     void Start()
     {
@@ -33,6 +34,10 @@ public class ScoreManager : MonoBehaviour
         if (offerItem.offerCount == offerAmount) 
         {
             Debug.Log("Yay you won the game yippee yay ^-^");
+        }
+        if(player.GetComponent<OfferItem>().hasOffered) 
+        {
+            offerIndicator = player.GetComponent<OfferItem>().offerIndicator;
         }
     }
 }
