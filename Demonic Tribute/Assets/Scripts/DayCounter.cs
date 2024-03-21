@@ -26,6 +26,7 @@ public class DayCounter : MonoBehaviour
     {
         yield return new WaitForSeconds(1);
         TimeLeft -= 1;
+        PlayerManager.instance.dayCounter += 1;
         if (TimeLeft >= 0)
         {
             StartCoroutine(updateTimer());
