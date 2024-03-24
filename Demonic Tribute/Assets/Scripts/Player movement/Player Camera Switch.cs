@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using static Unity.Burst.Intrinsics.X86.Avx;
 using UnityEngine.Rendering;
+using Cinemachine;
 
 public class PlayerCameraSwitch : MonoBehaviour
 {
@@ -10,6 +11,8 @@ public class PlayerCameraSwitch : MonoBehaviour
     public GameObject camTP;
     public GameObject player;
     public Transform playerObj;
+    public GameObject cineMach;
+
     public bool cameraSwitch;
 
     public bool inventoryOpen;
@@ -68,6 +71,7 @@ public class PlayerCameraSwitch : MonoBehaviour
             player.GetComponent<ThirdPersoonCameraRotation>().enabled = false;
             player.GetComponent<FirstPersonCamera>().enabled = false;
             player.GetComponent<Firstpersonmovement>().enabled = false;
+            cineMach.GetComponent<CinemachineFreeLook>().enabled = false;
         }
         else if(Input.GetButtonDown("tab") && inventoryOpen == true)
         {
@@ -79,6 +83,7 @@ public class PlayerCameraSwitch : MonoBehaviour
             player.GetComponent<ThirdPersoonCameraRotation>().enabled = true;
             player.GetComponent<FirstPersonCamera>().enabled = true;
             player.GetComponent<Firstpersonmovement>().enabled = true;
+            cineMach.GetComponent<CinemachineFreeLook>().enabled = true;
         }
     }
 }
