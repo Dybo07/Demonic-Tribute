@@ -33,7 +33,7 @@ public class ScoreManager : MonoBehaviour
         }
         if (offerItem.offerCount == offerAmount) 
         {
-            Debug.Log("Yay you won the game yippee yay ^-^");
+            offerInfo.text = "Offered items: " + offerItem.offerCount + " / " + offerAmount;
         }
         if(player.GetComponent<OfferItem>().hasOffered) 
         {

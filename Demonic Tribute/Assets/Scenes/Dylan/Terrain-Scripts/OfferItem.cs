@@ -31,7 +31,7 @@ public class OfferItem : MonoBehaviour
             {
                 for (int i = 0; i < invSlots.Length; i++)
                 {
-                    if (invSlots[i].transform.childCount != 0)
+                    if (invSlots[i].transform.childCount != 0 && offerCount <= 60)
                     {
                         GameObject invItem = invSlots[i].transform.GetChild(0).gameObject;
                         Destroy(invItem);

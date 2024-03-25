@@ -10,7 +10,7 @@ public class InvManager : MonoBehaviour
     public Item item;
 
     public GameObject InvItemPrefab;
-    public GameObject inGameItemPrefab;
+    //public GameObject inGameItemPrefab;
     public GameObject inventoryGroup;
     public GameObject player;
 
