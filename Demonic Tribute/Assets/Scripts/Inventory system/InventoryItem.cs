@@ -9,7 +9,7 @@ public class InventoryItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
 {
     public Image image;
     public Transform parentAfterDrag;
-    //ScriptableObject item
+    //ScriptableObject item. elke prefab heeft een andere item SO
     public Item item;
     public GameObject droppedItem;
     public GameObject inGameItemPrefab;

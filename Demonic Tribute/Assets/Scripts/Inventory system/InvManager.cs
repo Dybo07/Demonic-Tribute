@@ -42,7 +42,6 @@ public class InvManager : MonoBehaviour
         return;
     }
 
-    //spawns item inside inventory by retrieving an item from AddItem function.
     public void SpawnNewItem(Item item, InvSlot slot)
     {
         GameObject newItem = Instantiate(InvItemPrefab, slot.transform);
