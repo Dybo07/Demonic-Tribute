@@ -6,12 +6,11 @@ using TMPro;
 
 public class OfferItem : MonoBehaviour
 {
-
+    public ScoreManager scoreManager;
     public InvManager invManager;
     public InvSlot[] invSlots;
     public GameObject offerIndicator;
 
-    public float reach = 1f;
     public int offerCount = 0;
     public bool hasOffered = false;
     public bool isInRange = false;
@@ -31,7 +30,7 @@ public class OfferItem : MonoBehaviour
             {
                 for (int i = 0; i < invSlots.Length; i++)
                 {
-                    if (invSlots[i].transform.childCount != 0 && offerCount <= 60)
+                    if (invSlots[i].transform.childCount != 0 && offerCount <= scoreManager.offerAmount)
                     {
                         GameObject invItem = invSlots[i].transform.GetChild(0).gameObject;
                         Destroy(invItem);

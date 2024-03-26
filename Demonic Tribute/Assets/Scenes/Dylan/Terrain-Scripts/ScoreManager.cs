@@ -17,9 +17,14 @@ public class ScoreManager : MonoBehaviour
 
     void Start()
     {
-        if (instance == null) 
+        //singleton thingy
+        if (instance == null)
         {
             instance = this;
+        }
+        else if (instance != null) 
+        {
+            Destroy(instance);
         }
         offerItem = player.GetComponent<OfferItem>();
     }

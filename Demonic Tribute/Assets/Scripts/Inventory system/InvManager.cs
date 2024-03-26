@@ -39,7 +39,6 @@ public class InvManager : MonoBehaviour
                 return;
             }
         }
-        return;
     }
 
     public void SpawnNewItem(Item item, InvSlot slot)
