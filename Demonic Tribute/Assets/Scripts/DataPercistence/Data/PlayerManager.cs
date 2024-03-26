@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerManager : MonoBehaviour
@@ -26,12 +25,11 @@ public class PlayerManager : MonoBehaviour
             LoadData();
         }
     }
-
     public void LoadData()
     {
         dayCounter = PlayerPrefs.GetInt("days");
         scoreCounter = PlayerPrefs.GetFloat("score");
-        pos = new Vector3((PlayerPrefs.GetFloat("posY")),(PlayerPrefs.GetFloat("posX")), (PlayerPrefs.GetFloat("posZ")));
+        player.position = new Vector3((PlayerPrefs.GetFloat("posX")), (PlayerPrefs.GetFloat("posY")), (PlayerPrefs.GetFloat("posZ")));
 
     }
 
@@ -52,7 +50,7 @@ public class PlayerManager : MonoBehaviour
     }
     public IEnumerator AutoSave()
     {
-        yield return new WaitForSeconds(5);
+        yield return new WaitForSeconds(30);
 
         SaveData();
     }
