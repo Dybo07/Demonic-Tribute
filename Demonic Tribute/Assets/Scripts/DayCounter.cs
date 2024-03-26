@@ -5,33 +5,41 @@ using UnityEngine;
 
 public class DayCounter : MonoBehaviour
 {
+    [Header("Days variables")]
     public int day;
-    public int TimeLeft;
-    public bool TimerOn = false;
-
+    public TMP_Text daycount;
+        
+    [Header("Timer variables")]
+    public int timeLeft;
+    public int timeMin;
+    public int timeSec;
+    public bool timerOn = false;
     public TMP_Text timeCounter;
     void Start()
     {
-        StartCoroutine (updateTimer());
+        timeLeft = 250;
+        StartCoroutine (UpdateTimer());
     }
 
 
     void Update()
     {
-            timeCounter.text = " timeLeft: " + TimeLeft;
+        //timer script
+        timeMin = timeLeft / 60;
+        timeSec = timeLeft - (timeMin * 60);
+        timeCounter.text = " timeLeft: " + string.Format ("{0:00}:{1:00}", timeMin, timeSec);
     }
     
 
-    IEnumerator updateTimer()
+    IEnumerator UpdateTimer()
     {
-        yield return new WaitForSeconds(1);
-        TimeLeft -= 1;
-        PlayerManager.instance.dayCounter += 1;
-        if (TimeLeft >= 0)
-        {
-            StartCoroutine(updateTimer());
+       yield return new WaitForSeconds(1);
+       timeLeft -= 1;
+       if (timeLeft >= 0)
+       {
+           StartCoroutine(UpdateTimer());
       
-        }
+       }
 
     }
 }
