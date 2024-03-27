@@ -39,8 +39,8 @@ public class PlayerManager : MonoBehaviour
         PlayerPrefs.SetFloat("score", scoreCounter);
 
         pos = player.position;
-        PlayerPrefs.SetFloat("posY", pos.y);
         PlayerPrefs.SetFloat("posX", pos.x);
+        PlayerPrefs.SetFloat("posY", pos.y);
         PlayerPrefs.SetFloat("posZ", pos.z);
     }
 
