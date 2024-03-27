@@ -1312,7 +1312,6 @@ GameObject:
   - component: {fileID: 778327519929460805}
   - component: {fileID: 5277206350202938485}
   - component: {fileID: 6161114889458805740}
-  - component: {fileID: 8944214648307893160}
   m_Layer: 0
   m_Name: Third Person Camera
   m_TagString: Untagged
@@ -1480,20 +1479,3 @@ MonoBehaviour:
   m_Damping: 0
   m_DampingWhenOccluded: 0
   m_OptimalTargetDistance: 0
---- !u!114 &8944214648307893160
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8023939203635241252}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 13fc693aa4529374da91d04f940aacb0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  camFP: {fileID: 5295512926271564501}
-  camTP: {fileID: 1934897844236090632}
-  player: {fileID: 8011003787929864711}
-  cameraSwitch: 0
-  inventoryOpen: 0

@@ -38,12 +38,12 @@ public class PlayerCameraSwitch : MonoBehaviour
             camFP.SetActive(true);
             camTP.SetActive(false);
 
+            player.GetComponent<Transform>().rotation = playerObj.rotation;
+            playerObj.rotation = player.GetComponent<Transform>().rotation;
+
             player.GetComponent<ThirdPersoonCameraRotation>().enabled = false;
             player.GetComponent<FirstPersonCamera>().enabled = true;
             player.GetComponent<Firstpersonmovement>().enabled = true;
-
-            player.GetComponent<Transform>().rotation = playerObj.rotation;
-            playerObj.rotation = player.GetComponent<Transform>().rotation;
 
             cameraSwitch = true;
         }
@@ -56,8 +56,7 @@ public class PlayerCameraSwitch : MonoBehaviour
             player.GetComponent<FirstPersonCamera>().enabled = false;
             player.GetComponent<Firstpersonmovement>().enabled = false;
 
-            player.GetComponent<Transform>().rotation = playerObj.rotation;
-            playerObj.rotation = player.GetComponent<Transform>().rotation;
+            player.GetComponent<Transform>().rotation = Quaternion.Euler(0,0,0);
 
             cameraSwitch = false;
         }
@@ -79,10 +78,20 @@ public class PlayerCameraSwitch : MonoBehaviour
         {
             Cursor.lockState = CursorLockMode.Locked;
             Cursor.visible = false;
+            if(cameraSwitch == true)
+            {
+                player.GetComponent<ThirdPersoonCameraRotation>().enabled = false;
+                player.GetComponent<FirstPersonCamera>().enabled = true;
+                player.GetComponent<Firstpersonmovement>().enabled = true;
 
-            player.GetComponent<ThirdPersoonCameraRotation>().enabled = true;
-            player.GetComponent<FirstPersonCamera>().enabled = true;
-            player.GetComponent<Firstpersonmovement>().enabled = true;
+            }
+            else if (cameraSwitch == false)
+            {
+                player.GetComponent<ThirdPersoonCameraRotation>().enabled = true;
+                player.GetComponent<FirstPersonCamera>().enabled = false;
+                player.GetComponent<Firstpersonmovement>().enabled = false;
+
+            }
             cineMach.GetComponent<CinemachineFreeLook>().enabled = true;
 
             inventoryOpen = false;
