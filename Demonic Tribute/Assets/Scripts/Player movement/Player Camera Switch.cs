@@ -38,21 +38,19 @@ public class PlayerCameraSwitch : MonoBehaviour
             camFP.SetActive(true);
             camTP.SetActive(false);
 
-            cameraSwitch = !cameraSwitch;
-
             player.GetComponent<ThirdPersoonCameraRotation>().enabled = false;
             player.GetComponent<FirstPersonCamera>().enabled = true;
             player.GetComponent<Firstpersonmovement>().enabled = true;
 
             player.GetComponent<Transform>().rotation = playerObj.rotation;
             playerObj.rotation = player.GetComponent<Transform>().rotation;
+
+            cameraSwitch = true;
         }
         else if (Input.GetButtonDown("CamSwitch") && cameraSwitch == true && inventoryOpen == false)
         {
             camFP.SetActive(false);
             camTP.SetActive(true);
-
-            cameraSwitch = !cameraSwitch;
 
             player.GetComponent<ThirdPersoonCameraRotation>().enabled = true;
             player.GetComponent<FirstPersonCamera>().enabled = false;
@@ -60,6 +58,8 @@ public class PlayerCameraSwitch : MonoBehaviour
 
             player.GetComponent<Transform>().rotation = playerObj.rotation;
             playerObj.rotation = player.GetComponent<Transform>().rotation;
+
+            cameraSwitch = false;
         }
 
         //Inventory inputs
@@ -67,23 +67,25 @@ public class PlayerCameraSwitch : MonoBehaviour
         {
             Cursor.lockState = CursorLockMode.Confined;
             Cursor.visible = true;
-            inventoryOpen = !inventoryOpen;
+
             player.GetComponent<ThirdPersoonCameraRotation>().enabled = false;
             player.GetComponent<FirstPersonCamera>().enabled = false;
             player.GetComponent<Firstpersonmovement>().enabled = false;
             cineMach.GetComponent<CinemachineFreeLook>().enabled = false;
+
+            inventoryOpen = true;
         }
         else if(Input.GetButtonDown("tab") && inventoryOpen == true)
         {
             Cursor.lockState = CursorLockMode.Locked;
             Cursor.visible = false;
 
-            inventoryOpen = !inventoryOpen;
-
             player.GetComponent<ThirdPersoonCameraRotation>().enabled = true;
             player.GetComponent<FirstPersonCamera>().enabled = true;
             player.GetComponent<Firstpersonmovement>().enabled = true;
             cineMach.GetComponent<CinemachineFreeLook>().enabled = true;
+
+            inventoryOpen = false;
         }
     }
 }

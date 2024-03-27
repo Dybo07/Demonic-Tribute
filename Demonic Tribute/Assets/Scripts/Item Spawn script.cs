@@ -11,11 +11,7 @@ public class ItemSpawnscript : MonoBehaviour
     public int numberOfItems;
 
     [Header("items")]
-    public GameObject item1;
-    public GameObject item2;
-    public GameObject item3;
-    public GameObject item4;
-    public GameObject item5;
+    public GameObject[] items;
 
     [Header("Other variables")]
     public Terrain terrain;
@@ -47,29 +43,9 @@ public class ItemSpawnscript : MonoBehaviour
             randomYRot = Random.Range(1, 361);
             randomQuaternion = Quaternion.Euler(0, randomYRot, 0);
 
-            randomNum = Random.Range(1, 6);
+            randomNum = Random.Range(0, 5);
 
-            switch (randomNum)
-            {
-                case 5:
-                    Instantiate(item5, spawnPoint, randomQuaternion);
-                    break;
-                case 4:
-                    Instantiate(item4, spawnPoint, randomQuaternion);
-                    break;
-                case 3:
-                    Instantiate(item3, spawnPoint, randomQuaternion);
-                    break;
-                case 2:
-                    Instantiate(item2, spawnPoint, randomQuaternion);
-                    break;
-                case 1:
-                    Instantiate(item1, spawnPoint, randomQuaternion);
-                    break;
-                default:
-                    break;
-
-            }
+            Instantiate(items[randomNum], spawnPoint, randomQuaternion);
         }
     }
 }
