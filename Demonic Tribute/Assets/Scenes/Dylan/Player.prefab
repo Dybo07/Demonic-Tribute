@@ -1161,6 +1161,7 @@ GameObject:
   - component: {fileID: 4060748989192024495}
   - component: {fileID: 8003229366531794608}
   - component: {fileID: 7770833878778059865}
+  - component: {fileID: 4023959875163063295}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -1301,6 +1302,25 @@ MonoBehaviour:
   dashForce: 0
   dashBool: 0
   dashDelay: 0
+--- !u!114 &4023959875163063295
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8011003787929864711}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6eccbd0dea73faa468b0130f2369fbb4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scoreManager: {fileID: 0}
+  invManager: {fileID: 0}
+  invSlots: []
+  offerIndicator: {fileID: 0}
+  offerCount: 0
+  hasOffered: 0
+  isInRange: 0
 --- !u!1 &8023939203635241252
 GameObject:
   m_ObjectHideFlags: 0

@@ -8,7 +8,7 @@ public class ScoreManager : MonoBehaviour
 {
     public static ScoreManager instance;
 
-    public int offerAmount = 60;
+    public int offerAmount;
     public GameObject player;
     public OfferItem offerItem;
 

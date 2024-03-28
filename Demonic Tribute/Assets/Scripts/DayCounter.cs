@@ -9,10 +9,6 @@ using UnityEngine.SceneManagement;
 
 public class DayCounter : MonoBehaviour
 {
-    public List<int> Days;
-    [Header("other variables")]
-    public ScoreManager scoreManager;
-
     [Header("Days variables")]
     public int day;
     public TMP_Text daycount;
@@ -30,7 +26,7 @@ public class DayCounter : MonoBehaviour
     {
         day = 1;
         timeLeft = 300;
-        scoreManager.offerAmount = 10;
+        ScoreManager.instance.offerAmount = 10;
 
         StartCoroutine (UpdateTimer());
     }
@@ -46,7 +42,7 @@ public class DayCounter : MonoBehaviour
         //daycount script
         daycount.text = "Day " + day;
 
-        if (scoreManager.offerItem.offerCount >= scoreManager.offerAmount)
+        if (ScoreManager.instance.offerItem.offerCount >= ScoreManager.instance.offerAmount)
         {
             day = +1;
             StartCoroutine (DayCount());
@@ -74,61 +70,61 @@ public class DayCounter : MonoBehaviour
             case 1:
                 SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
                 timeLeft = 300;
-                scoreManager.offerAmount = 10;
+                ScoreManager.instance.offerAmount = 10;
                 break;
 
             case 2:
                 SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
                 timeLeft = 300;
-                scoreManager.offerAmount = 20;
+                ScoreManager.instance.offerAmount = 20;
                 break;
 
             case 3:
                 SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
                 timeLeft = 
-                scoreManager.offerAmount = 25;
+                ScoreManager.instance.offerAmount = 25;
                 break;
 
             case 4:
                 SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
                 timeLeft =
-                scoreManager.offerAmount = 30;
+                ScoreManager.instance.offerAmount = 30;
                 break;
 
             case 5:
                 SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
                 timeLeft =
-                scoreManager.offerAmount = 40;
+                ScoreManager.instance.offerAmount = 40;
                 break;
 
             case 6:
                 SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
                 timeLeft =
-                scoreManager.offerAmount = 50;
+                ScoreManager.instance.offerAmount = 50;
                 break;
 
             case 7:
                 SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
                 timeLeft =
-                scoreManager.offerAmount = 60;
+                ScoreManager.instance.offerAmount = 60;
                 break;
 
             case 8:
                 SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
                 timeLeft =
-                scoreManager.offerAmount = 69;
+                ScoreManager.instance.offerAmount = 69;
                 break;
 
             case 9:
                 SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
                 timeLeft =
-                scoreManager.offerAmount = 100;
+                ScoreManager.instance.offerAmount = 100;
                 break;
 
             case 10:
                 SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
                 timeLeft =
-                scoreManager.offerAmount = 1;
+                ScoreManager.instance.offerAmount = 1;
                 break;
 
             default:
