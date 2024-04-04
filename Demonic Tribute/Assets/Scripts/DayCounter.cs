@@ -65,21 +65,20 @@ public class DayCounter : MonoBehaviour
         if (timeLeft >= 0)
         {
             StartCoroutine(UpdateTimer());
-
         }
         else if (timeLeft <= 0) 
         {
-            if (day >= 7)
+            if (day == 6)
             {
                 StartCoroutine(UpdateTimer());
                 day++;
                 timeLeft = 180;
-
             }
             else 
             {
                 day++;
                 timeLeft = 300;
+                StartCoroutine(UpdateTimer());
             }
             //timeLeft = 300;
         }
@@ -87,77 +86,9 @@ public class DayCounter : MonoBehaviour
 
     IEnumerator DayCount()
     {
-        /*
-        switch(day)
-        {
-            case 1:
-                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-                timeLeft = 300;
-                ScoreManager.instance.offerAmount = 10;
-                break;
-
-            case 2:
-                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-                timeLeft = 300;
-                ScoreManager.instance.offerAmount = 20;
-                break;
-
-            case 3:
-                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-                timeLeft = 
-                ScoreManager.instance.offerAmount = 25;
-                break;
-
-            case 4:
-                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-                timeLeft =
-                ScoreManager.instance.offerAmount = 30;
-                break;
-
-            case 5:
-                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-                timeLeft =
-                ScoreManager.instance.offerAmount = 40;
-                break;
-
-            case 6:
-                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-                timeLeft =
-                ScoreManager.instance.offerAmount = 50;
-                break;
-
-            case 7:
-                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-                timeLeft =
-                ScoreManager.instance.offerAmount = 60;
-                break;
-
-            case 8:
-                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-                timeLeft =
-                ScoreManager.instance.offerAmount = 69;
-                break;
-
-            case 9:
-                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-                timeLeft =
-                ScoreManager.instance.offerAmount = 100;
-                break;
-
-            case 10:
-                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-                timeLeft =
-                ScoreManager.instance.offerAmount = 1;
-                break;
-
-            default:
-                break;
-        }
-        */
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-            ScoreManager.instance.offerAmount += ScoreManager.instance.offerAmount;
-            //for debugging enzo.
-            Debug.Log(ScoreManager.instance.offerAmount);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        ScoreManager.instance.offerAmount += 10;
+        Debug.Log(ScoreManager.instance.offerAmount);
 
         yield return new WaitForSeconds(1);
     }
