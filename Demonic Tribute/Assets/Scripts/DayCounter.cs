@@ -9,6 +9,7 @@ using UnityEngine.SceneManagement;
 
 public class DayCounter : MonoBehaviour
 {
+    public static DayCounter instance;
     [Header("Days variables")]
     public int day;
     public TMP_Text daycount;
@@ -27,6 +28,7 @@ public class DayCounter : MonoBehaviour
     public int d;
     void Start()
     {
+        instance = this;
         day = 1;
         timeLeft = 300;
         ScoreManager.instance.offerAmount = 10;
@@ -50,6 +52,7 @@ public class DayCounter : MonoBehaviour
         if (ScoreManager.instance.offerItem.offerCount >= ScoreManager.instance.offerAmount)
         {
             day = +1;
+            PlayerManager.instance.dayCounter = day;
             StartCoroutine (DayCount());
         }
     }
