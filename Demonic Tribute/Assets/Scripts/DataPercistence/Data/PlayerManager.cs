@@ -18,21 +18,6 @@ public class PlayerManager : MonoBehaviour
         player = GameObject.FindGameObjectWithTag("Player").transform;
     }
 
-    public void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.A))
-        {
-            LoadData();
-        }
-    }
-    public void LoadData()
-    {
-        dayCounter = PlayerPrefs.GetInt("days");
-        scoreCounter = PlayerPrefs.GetFloat("score");
-        player.position = new Vector3((PlayerPrefs.GetFloat("posX")), (PlayerPrefs.GetFloat("posY")), (PlayerPrefs.GetFloat("posZ")));
-
-    }
-
     public void SaveData()
     {
         PlayerPrefs.SetInt("days", dayCounter);
@@ -42,6 +27,13 @@ public class PlayerManager : MonoBehaviour
         PlayerPrefs.SetFloat("posX", pos.x);
         PlayerPrefs.SetFloat("posY", pos.y);
         PlayerPrefs.SetFloat("posZ", pos.z);
+    }
+    public void LoadData()
+    {
+        dayCounter = PlayerPrefs.GetInt("days");
+        scoreCounter = PlayerPrefs.GetFloat("score");
+        player.position = new Vector3((PlayerPrefs.GetFloat("posX")), (PlayerPrefs.GetFloat("posY")), (PlayerPrefs.GetFloat("posZ")));
+
     }
 
     public void DeleteData()
