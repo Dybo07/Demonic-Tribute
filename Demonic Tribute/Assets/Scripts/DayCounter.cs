@@ -13,12 +13,15 @@ public class DayCounter : MonoBehaviour
     public int day;
     public TMP_Text daycount;
 
+    //public ScoreManager scoreManager;   
+
     [Header("Timer variables")]
     public int timeLeft;
     public int timeMin;
     public int timeSec;
     public bool timerOn = false;
     public TMP_Text timeCounter;
+
 
     [Header("Score variables")]
     public int d;
@@ -27,6 +30,8 @@ public class DayCounter : MonoBehaviour
         day = 1;
         timeLeft = 300;
         ScoreManager.instance.offerAmount = 10;
+        //scoreManager = ScoreManager.instance;
+        //scoreManager.offerAmount = 10;
 
         StartCoroutine (UpdateTimer());
     }
@@ -46,25 +51,40 @@ public class DayCounter : MonoBehaviour
         {
             day = +1;
             StartCoroutine (DayCount());
-
         }
     }
 
     
-
     IEnumerator UpdateTimer()
     {
        yield return new WaitForSeconds(1);
        timeLeft -= 1;
-       if (timeLeft >= 0)
-       {
-           StartCoroutine(UpdateTimer());
-      
-       }
+        if (timeLeft >= 0)
+        {
+            StartCoroutine(UpdateTimer());
+
+        }
+        else if (timeLeft <= 0) 
+        {
+            if (day >= 7)
+            {
+                StartCoroutine(UpdateTimer());
+                day++;
+                timeLeft = 180;
+
+            }
+            else 
+            {
+                day++;
+                timeLeft = 300;
+            }
+            //timeLeft = 300;
+        }
     }
 
     IEnumerator DayCount()
     {
+        /*
         switch(day)
         {
             case 1:
@@ -130,6 +150,12 @@ public class DayCounter : MonoBehaviour
             default:
                 break;
         }
+        */
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+            ScoreManager.instance.offerAmount += ScoreManager.instance.offerAmount;
+            //for debugging enzo.
+            Debug.Log(ScoreManager.instance.offerAmount);
+
         yield return new WaitForSeconds(1);
     }
 }

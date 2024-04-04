@@ -3,12 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using Unity.VisualScripting;
 
 public class ScoreManager : MonoBehaviour
 {
+    //singleton
     public static ScoreManager instance;
 
-    public int offerAmount;
+    public int offerAmount = 0;
     public GameObject player;
     public OfferItem offerItem;
 
@@ -17,17 +19,23 @@ public class ScoreManager : MonoBehaviour
 
     void Start()
     {
+        
+        offerItem = player.GetComponent<OfferItem>();
+    }
+
+    private void Awake()
+    {
         //singleton thingy
         if (instance == null)
         {
             instance = this;
         }
-        else if (instance != null) 
+        else if (instance != null && instance != this)
         {
-            Destroy(instance);
+            Destroy(this);
         }
-        offerItem = player.GetComponent<OfferItem>();
     }
+
 
     // Update is called once per frame
     void Update()
