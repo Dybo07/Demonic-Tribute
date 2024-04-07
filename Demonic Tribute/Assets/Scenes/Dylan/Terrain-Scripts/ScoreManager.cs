@@ -10,7 +10,7 @@ public class ScoreManager : MonoBehaviour
     //singleton
     public static ScoreManager instance;
 
-    public int offerAmount = 0;
+    public int offerAmount;
     public GameObject player;
     public OfferItem offerItem;
 

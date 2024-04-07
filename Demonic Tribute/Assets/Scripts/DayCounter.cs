@@ -11,6 +11,7 @@ public class DayCounter : MonoBehaviour
 {
     public static DayCounter instance;
     [Header("Days variables")]
+    [SerializeField]
     public int day;
     public TMP_Text daycount;
 
@@ -28,12 +29,10 @@ public class DayCounter : MonoBehaviour
     public int d;
     void Start()
     {
-        instance = this;
         day = 1;
+        instance = this;
         timeLeft = 300;
         ScoreManager.instance.offerAmount = 10;
-        //scoreManager = ScoreManager.instance;
-        //scoreManager.offerAmount = 10;
 
         StartCoroutine (UpdateTimer());
     }
@@ -51,8 +50,11 @@ public class DayCounter : MonoBehaviour
 
         if (ScoreManager.instance.offerItem.offerCount >= ScoreManager.instance.offerAmount)
         {
-            day = +1;
-            PlayerManager.instance.dayCounter = day;
+            day++;
+            Debug.Log(day);
+            ScoreManager.instance.offerItem.offerCount = 0;
+            //deze singleton werkt niet.
+            //PlayerManager.instance.dayCounter = day;
             StartCoroutine (DayCount());
         }
     }
@@ -70,6 +72,7 @@ public class DayCounter : MonoBehaviour
         {
             if (day == 6)
             {
+                ScoreManager.instance.offerAmount = 25;
                 StartCoroutine(UpdateTimer());
                 day++;
                 timeLeft = 180;
