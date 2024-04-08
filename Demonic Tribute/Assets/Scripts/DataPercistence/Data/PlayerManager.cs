@@ -16,6 +16,7 @@ public class PlayerManager : MonoBehaviour
             instance = this;
         }
         player = GameObject.FindGameObjectWithTag("Player").transform;
+        StartCoroutine(AutoSave());
     }
 
     public void SaveData()
@@ -27,6 +28,7 @@ public class PlayerManager : MonoBehaviour
         PlayerPrefs.SetFloat("posX", pos.x);
         PlayerPrefs.SetFloat("posY", pos.y);
         PlayerPrefs.SetFloat("posZ", pos.z);
+        
     }
     public void LoadData()
     {
@@ -45,6 +47,7 @@ public class PlayerManager : MonoBehaviour
         yield return new WaitForSeconds(30);
 
         SaveData();
+        StartCoroutine(AutoSave());
     }
 
 }
