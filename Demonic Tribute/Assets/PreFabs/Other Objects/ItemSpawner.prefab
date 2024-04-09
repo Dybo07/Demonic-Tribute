@@ -28,7 +28,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 800, y: 10, z: 600}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -48,7 +48,7 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -67,14 +67,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   numberOfItems: 0
-  item1: {fileID: 6740429923728823639, guid: 411d47d1fe0e9174297c8689ba42b4c3, type: 3}
-  item2: {fileID: 2401626003587500342, guid: bd8ff8913930a2546ac2e5c218cc53da, type: 3}
-  item3: {fileID: 6716333220471434686, guid: 85f71f85c0704a845a1620f6db34255d, type: 3}
-  item4: {fileID: 2869422996125411669, guid: 09e8e3bea10c9bd49b05d62ab9e92784, type: 3}
-  item5: {fileID: 0}
+  currentNumItems: 0
+  items: []
+  numGameObjects: 5
+  itemHolder: {fileID: 0}
   terrain: {fileID: 0}
   spawnCollider: {fileID: 0}
   spawnPoint: {x: 0, y: 0, z: 0}
   randomNum: 0
   randomQuaternion: {x: 0, y: 0, z: 0, w: 0}
   randomYRot: 0
+  canInstantiate: 0
+  noSpawn: 0

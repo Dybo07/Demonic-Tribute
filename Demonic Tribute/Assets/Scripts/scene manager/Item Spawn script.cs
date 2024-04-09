@@ -1,6 +1,7 @@
 using JetBrains.Annotations;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditorInternal.Profiling.Memory.Experimental;
 using UnityEngine;
 
 public class ItemSpawnscript : MonoBehaviour
@@ -9,9 +10,12 @@ public class ItemSpawnscript : MonoBehaviour
 
     [Header("Number of items to spawn")]
     public int numberOfItems;
+    public int currentNumItems;
 
     [Header("items")]
     public GameObject[] items;
+    public int numGameObjects = 5;
+    public GameObject itemHolder;
 
     [Header("Other variables")]
     public Terrain terrain;
@@ -22,6 +26,10 @@ public class ItemSpawnscript : MonoBehaviour
     public Quaternion randomQuaternion;
     public float randomYRot;
 
+    public bool canInstantiate;
+
+    public bool noSpawn;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -29,10 +37,11 @@ public class ItemSpawnscript : MonoBehaviour
         {  
             instance = this; 
         }
+        currentNumItems = 0;
 
         spawnCollider = GetComponent<Collider>();
 
-        for (int i = 0; i < numberOfItems; i++)
+        while (currentNumItems < numberOfItems)
         {
             spawnPoint.x = Random.Range(spawnCollider.bounds.min.x, spawnCollider.bounds.max.x);
             spawnPoint.z = Random.Range(spawnCollider.bounds.min.z, spawnCollider.bounds.max.z);
@@ -43,12 +52,42 @@ public class ItemSpawnscript : MonoBehaviour
             randomYRot = Random.Range(1, 361);
             randomQuaternion = Quaternion.Euler(0, randomYRot, 0);
 
-            randomNum = Random.Range(0, 5);
+            randomNum = Random.Range(0, numGameObjects);
+            itemHolder = items[randomNum];
+            
+            Instantiate(itemHolder, spawnPoint, randomQuaternion);
 
-            Instantiate(items[randomNum], spawnPoint, randomQuaternion);
+            canInstantiate = true;
+            noSpawn = false;
+            CheckCollision();
+            print("Check");
+
+            if (noSpawn == true)
+            {
+                canInstantiate = false;
+                Destroy(itemHolder);
+            }
+
+            if (canInstantiate == true)
+            {
+                currentNumItems++;
+            }
+            if (currentNumItems == numberOfItems)
+            {
+                break;
+            }
+        }
+    }
+    public void CheckCollision()
+    {
+        Collider objectCollider = itemHolder.GetComponent<Collider>();
+        if (objectCollider.GetComponent<Collider>().CompareTag("Obstacle"))
+        {
+            noSpawn = false;
         }
     }
 }
+
 
 
 
