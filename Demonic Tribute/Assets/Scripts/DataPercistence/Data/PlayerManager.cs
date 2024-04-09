@@ -3,7 +3,6 @@ using UnityEngine;
 
 public class PlayerManager : MonoBehaviour
 {
-    
     public static PlayerManager instance;
     public int dayCounter;
     public float scoreCounter;
@@ -11,10 +10,7 @@ public class PlayerManager : MonoBehaviour
     public Transform player;
     public void Start()
     {
-        if(instance == null)
-        {
             instance = this;
-        }
         player = GameObject.FindGameObjectWithTag("Player").transform;
         StartCoroutine(AutoSave());
     }
@@ -28,14 +24,20 @@ public class PlayerManager : MonoBehaviour
         PlayerPrefs.SetFloat("posX", pos.x);
         PlayerPrefs.SetFloat("posY", pos.y);
         PlayerPrefs.SetFloat("posZ", pos.z);
-        
+    }
+
+    public void  SaveScore(int offerAmount, int offerCount)
+    {
+        PlayerPrefs.SetInt("offerAmount", offerAmount);
+        PlayerPrefs.SetInt("offerCount", offerCount);
     }
     public void LoadData()
     {
         dayCounter = PlayerPrefs.GetInt("days");
         scoreCounter = PlayerPrefs.GetFloat("score");
         player.position = new Vector3((PlayerPrefs.GetFloat("posX")), (PlayerPrefs.GetFloat("posY")), (PlayerPrefs.GetFloat("posZ")));
-
+        ScoreManager.instance.offerAmount = PlayerPrefs.GetInt("offerAmount");
+        ScoreManager.instance.offerItem.offerCount = PlayerPrefs.GetInt("offerCount");
     }
 
     public void DeleteData()

@@ -35,6 +35,7 @@ public class OfferItem : MonoBehaviour
                         GameObject invItem = invSlots[i].transform.GetChild(0).gameObject;
                         Destroy(invItem);
                         offerCount++;
+                        PlayerManager.instance.SaveScore(ScoreManager.instance.offerAmount, ScoreManager.instance.offerItem.offerCount);
                         break;
                     }
                 }
