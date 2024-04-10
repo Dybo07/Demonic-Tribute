@@ -1030,7 +1030,6 @@ GameObject:
   - component: {fileID: 89294192195496676}
   - component: {fileID: 415584558144355237}
   - component: {fileID: 3404896723427418191}
-  - component: {fileID: 8123041118658176576}
   m_Layer: 5
   m_Name: save and load 1
   m_TagString: Untagged
@@ -1149,20 +1148,6 @@ MonoBehaviour:
   scoreCounter: 0
   pos: {x: 0, y: 0, z: 0}
   player: {fileID: 0}
---- !u!114 &8123041118658176576
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6865661552228295996}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4ca2a2282226d7b4fbe3195d6b94a783, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  GameIsPaused: 0
-  pauseMenuUI: {fileID: 6865661552228295996}
 --- !u!1 &8561718247972978417
 GameObject:
   m_ObjectHideFlags: 0

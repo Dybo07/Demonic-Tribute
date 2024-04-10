@@ -6,7 +6,7 @@ public class PlayerManager : MonoBehaviour
     public static PlayerManager instance;
     public int dayCounter;
     public float scoreCounter;
-    public Vector3 pos;
+    public Vector3 posPlayer;
     public Transform player;
     public void Start()
     {
@@ -20,10 +20,10 @@ public class PlayerManager : MonoBehaviour
         PlayerPrefs.SetInt("days", dayCounter);
         PlayerPrefs.SetFloat("score", scoreCounter);
 
-        pos = player.position;
-        PlayerPrefs.SetFloat("posX", pos.x);
-        PlayerPrefs.SetFloat("posY", pos.y);
-        PlayerPrefs.SetFloat("posZ", pos.z);
+        posPlayer = player.position;
+        PlayerPrefs.SetFloat("posX", posPlayer.x);
+        PlayerPrefs.SetFloat("posY", posPlayer.y);
+        PlayerPrefs.SetFloat("posZ", posPlayer.z);
     }
 
     public void  SaveScore(int offerAmount, int offerCount)

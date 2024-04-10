@@ -52,7 +52,6 @@ public class DayCounter : MonoBehaviour
 
         if (ScoreManager.instance.offerItem.offerCount >= ScoreManager.instance.offerAmount)
         {
-            day++;
             Debug.Log(day);
             ScoreManager.instance.offerItem.offerCount = 0;
             Debug.Log(day);
