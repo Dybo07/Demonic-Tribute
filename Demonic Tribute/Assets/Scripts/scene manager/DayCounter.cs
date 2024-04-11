@@ -22,8 +22,9 @@ public class DayCounter : MonoBehaviour
     public bool timerOn = false;
     public int day;
     public int maxDayCount = 7;
-    public int maxOfferCount = 260;
+    public int maxOfferCount = 100;
     public bool hasWon = false;
+    public int offerCountbruh = 0;
 
     public TMP_Text timeCounter;
 
@@ -55,10 +56,12 @@ public class DayCounter : MonoBehaviour
 
         if (ScoreManager.instance.offerItem.offerCount >= ScoreManager.instance.offerAmount)
         {
-            if (ScoreManager.instance.offerItem.offerCount >= maxOfferCount)
+            offerCountbruh++;
+            if (offerCountbruh == 6)
             {
                 hasWon = true;
-                SceneManager.LoadScene("Game-over-won");
+                SceneManager.LoadScene("Game-won");
+                Debug.Log("i won i think");
             }
             else 
             {
@@ -72,6 +75,10 @@ public class DayCounter : MonoBehaviour
                 StartCoroutine(DayCount());
                 Debug.Log(day);
             }
+        }
+        if (day == maxDayCount && timeLeft == 0)
+        {
+            SceneManager.LoadScene("Game-over");
         }
     }
 
@@ -87,12 +94,9 @@ public class DayCounter : MonoBehaviour
         }
         else if (timeLeft <= 0) 
         {
-            if (day >= maxDayCount)
-            {
-                SceneManager.LoadScene("Game-over-won");
-            }
-            else 
-            {
+            
+           
+            
                 if (day == 6)
                 {
                     ScoreManager.instance.offerAmount = 25;
@@ -106,7 +110,7 @@ public class DayCounter : MonoBehaviour
                     timeLeft = 300;
                     StartCoroutine(UpdateTimer());
                 }
-            }
+            
             //timeLeft = 300;
         }
     }

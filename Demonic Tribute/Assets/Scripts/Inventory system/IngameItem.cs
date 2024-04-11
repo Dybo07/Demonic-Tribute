@@ -12,13 +12,13 @@ public class IngameItem : MonoBehaviour
 
     void Update()
     {
-        invManager = FindAnyObjectByType<InvManager>();
     }
 
     public void OnCollisionEnter(Collision hitInfo)
     {
         if (hitInfo.gameObject.CompareTag("Player") && isPickedUp == false) 
         {
+            invManager = FindAnyObjectByType<InvManager>();
             isPickedUp = true;
             invManager.AddItem(item);
             Destroy(gameObject);

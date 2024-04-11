@@ -11,6 +11,7 @@ public class ItemSpawnscript : MonoBehaviour
 
     [Header("Number of items to spawn")]
     public int numberOfItems;
+    public int maxNumOfItems = 60;
     public int currentNumItems;
 
     [Header("items")]
@@ -45,7 +46,6 @@ public class ItemSpawnscript : MonoBehaviour
     }
     void Update()
     {
-
 
     }
     public void CheckCollision()
@@ -83,16 +83,22 @@ public class ItemSpawnscript : MonoBehaviour
                 Destroy(itemHolder);
             }
 
-            if (canInstantiate == true)
+            if (canInstantiate)
             {
                 currentNumItems++;
             }
-            if (currentNumItems == numberOfItems)
+            if (numberOfItems >= maxNumOfItems) 
             {
                 break;
             }
+            else if (currentNumItems == numberOfItems)
+            {
+                numberOfItems += 5;
+                break;
+            }
         }
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(60);
+        StartCoroutine(spawnItem());
     }
 }
 
