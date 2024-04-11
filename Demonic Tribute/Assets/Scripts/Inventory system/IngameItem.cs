@@ -10,7 +10,7 @@ public class IngameItem : MonoBehaviour
     
     public bool isPickedUp = false;
 
-    public void Start()
+    void Update()
     {
         invManager = FindAnyObjectByType<InvManager>();
     }
