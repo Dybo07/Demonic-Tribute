@@ -21,9 +21,6 @@ public class Firstpersonmovement : MonoBehaviour
     public bool dashBool = false;
     public float dashDelay;
 
-    [Header("Animation")]
-    public Animator animator;
-
     // Start is called before the first frame update
     void Start()
     {
@@ -53,15 +50,6 @@ public class Firstpersonmovement : MonoBehaviour
         dir.x = hori;
         dir.z = vert;
         transform.Translate(dir * speed * Time.deltaTime);
-
-        if(dir != Vector3.zero)
-        {
-            animator.SetBool("isMoving", true);
-        }
-        else
-        {
-            animator.SetBool("isMoving", false);
-        }
 
         if (Input.GetButton("Sprint"))
         {
