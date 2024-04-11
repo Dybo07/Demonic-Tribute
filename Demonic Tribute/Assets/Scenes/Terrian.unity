@@ -3981,12 +3981,12 @@ PrefabInstance:
     - target: {fileID: 889310349359508466, guid: e4825e1a09741ee4b9e61fe5b5f97b99,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.00000001709104
+      value: -0.000000017091047
       objectReference: {fileID: 0}
     - target: {fileID: 889310349359508466, guid: e4825e1a09741ee4b9e61fe5b5f97b99,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.0000000019889252
+      value: 0.0000000019889261
       objectReference: {fileID: 0}
     - target: {fileID: 1661642778439617397, guid: e4825e1a09741ee4b9e61fe5b5f97b99,
         type: 3}
@@ -4146,12 +4146,12 @@ PrefabInstance:
     - target: {fileID: 8049517001365131859, guid: e4825e1a09741ee4b9e61fe5b5f97b99,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.000000034182086
+      value: -0.00000003418209
       objectReference: {fileID: 0}
     - target: {fileID: 8049517001365131859, guid: e4825e1a09741ee4b9e61fe5b5f97b99,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.0000000039778514
+      value: 0.000000003977852
       objectReference: {fileID: 0}
     - target: {fileID: 8944214648307893160, guid: e4825e1a09741ee4b9e61fe5b5f97b99,
         type: 3}
@@ -4754,6 +4754,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: save and load 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6865661552228295996, guid: bf18230298d2a934bbbdc547c974103a,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -5165,12 +5170,6 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -3230998252722618616, guid: 64a57c36330dd644eb5e407ac69c1e76, type: 3}
---- !u!4 &1017924585 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 1294706206798066503, guid: e4825e1a09741ee4b9e61fe5b5f97b99,
-    type: 3}
-  m_PrefabInstance: {fileID: 814761479}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1036857922
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7789,7 +7788,7 @@ PrefabInstance:
         type: 3}
       propertyPath: playerObj
       value: 
-      objectReference: {fileID: 1017924585}
+      objectReference: {fileID: 0}
     - target: {fileID: 7115917166160069527, guid: d3c0cd164590ed441b6e956363330ed9,
         type: 3}
       propertyPath: m_fontSize
@@ -7844,7 +7843,7 @@ PrefabInstance:
         type: 3}
       propertyPath: playerObj
       value: 
-      objectReference: {fileID: 1017924585}
+      objectReference: {fileID: 0}
     - target: {fileID: 8354717602730236372, guid: d3c0cd164590ed441b6e956363330ed9,
         type: 3}
       propertyPath: cameraSwitch
