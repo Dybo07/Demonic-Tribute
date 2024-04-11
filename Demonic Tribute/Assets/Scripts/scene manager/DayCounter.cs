@@ -21,6 +21,9 @@ public class DayCounter : MonoBehaviour
     public int timeSec;
     public bool timerOn = false;
     public int day;
+    public int maxDayCount = 7;
+    public int maxOfferCount = 260;
+    public bool hasWon = false;
 
     public TMP_Text timeCounter;
 
@@ -52,15 +55,23 @@ public class DayCounter : MonoBehaviour
 
         if (ScoreManager.instance.offerItem.offerCount >= ScoreManager.instance.offerAmount)
         {
-            day++;
-            Debug.Log(day);
-            ScoreManager.instance.offerItem.offerCount = 0;
-            Debug.Log(day);
-            //deze singleton werkt niet.
-            //PlayerManager.instance.dayCounter = day;
-            Debug.Log(day);
-            StartCoroutine (DayCount());
-            Debug.Log(day);
+            if (ScoreManager.instance.offerItem.offerCount >= maxOfferCount)
+            {
+                hasWon = true;
+                SceneManager.LoadScene("Game-over-won");
+            }
+            else 
+            {
+                day++;
+                Debug.Log(day);
+                ScoreManager.instance.offerItem.offerCount = 0;
+                Debug.Log(day);
+                //deze singleton werkt niet.
+                //PlayerManager.instance.dayCounter = day;
+                Debug.Log(day);
+                StartCoroutine(DayCount());
+                Debug.Log(day);
+            }
         }
     }
 
@@ -76,18 +87,25 @@ public class DayCounter : MonoBehaviour
         }
         else if (timeLeft <= 0) 
         {
-            if (day == 6)
+            if (day >= maxDayCount)
             {
-                ScoreManager.instance.offerAmount = 25;
-                StartCoroutine(UpdateTimer());
-                day++;
-                timeLeft = 180;
+                SceneManager.LoadScene("Game-over-won");
             }
             else 
             {
-                day++;
-                timeLeft = 300;
-                StartCoroutine(UpdateTimer());
+                if (day == 6)
+                {
+                    ScoreManager.instance.offerAmount = 25;
+                    StartCoroutine(UpdateTimer());
+                    day++;
+                    timeLeft = 180;
+                }
+                else
+                {
+                    day++;
+                    timeLeft = 300;
+                    StartCoroutine(UpdateTimer());
+                }
             }
             //timeLeft = 300;
         }
