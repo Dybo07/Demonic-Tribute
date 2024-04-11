@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<< HEAD
 guid: 8d4f2afdeef3e0f4483d5282fcdf0b71
+=======
+guid: 017a283c89870b342ae798d9bb81b529
+>>>>>>> parent of bd208b3 (Revert "Reapply "Reapply "..""")
 folderAsset: yes
 DefaultImporter:
   externalObjects: {}

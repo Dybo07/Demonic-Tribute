@@ -2,7 +2,11 @@ fileFormatVersion: 2
 guid: 5b88e9f22e33a2345aa54ddbea8229ce
 NativeFormatImporter:
   externalObjects: {}
+<<<<<<< HEAD
   mainObjectFileID: 0
+=======
+  mainObjectFileID: 2100000
+>>>>>>> parent of bd208b3 (Revert "Reapply "Reapply "..""")
   userData: 
   assetBundleName: 
   assetBundleVariant: 
