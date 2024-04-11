@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.17628095, g: 0.22062737, b: 0.30295053, a: 1}
+  m_IndirectSpecularColor: {r: 0.17629342, g: 0.2206428, b: 0.30296668, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -904,12 +904,12 @@ PrefabInstance:
     - target: {fileID: 889310349359508466, guid: e4825e1a09741ee4b9e61fe5b5f97b99,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.000000017091047
+      value: -0.00000001709104
       objectReference: {fileID: 0}
     - target: {fileID: 889310349359508466, guid: e4825e1a09741ee4b9e61fe5b5f97b99,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.0000000019889261
+      value: 0.0000000019889252
       objectReference: {fileID: 0}
     - target: {fileID: 1661642778439617397, guid: e4825e1a09741ee4b9e61fe5b5f97b99,
         type: 3}
@@ -1014,12 +1014,12 @@ PrefabInstance:
     - target: {fileID: 7474866857470125085, guid: e4825e1a09741ee4b9e61fe5b5f97b99,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.00000001765986
+      value: -0.000000017659854
       objectReference: {fileID: 0}
     - target: {fileID: 7474866857470125085, guid: e4825e1a09741ee4b9e61fe5b5f97b99,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.0000000016409466
+      value: 0.0000000016409462
       objectReference: {fileID: 0}
     - target: {fileID: 7770833878778059865, guid: e4825e1a09741ee4b9e61fe5b5f97b99,
         type: 3}
@@ -1069,12 +1069,12 @@ PrefabInstance:
     - target: {fileID: 8049517001365131859, guid: e4825e1a09741ee4b9e61fe5b5f97b99,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.00000003418209
+      value: -0.000000034182086
       objectReference: {fileID: 0}
     - target: {fileID: 8049517001365131859, guid: e4825e1a09741ee4b9e61fe5b5f97b99,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.000000003977852
+      value: 0.0000000039778514
       objectReference: {fileID: 0}
     - target: {fileID: 8944214648307893160, guid: e4825e1a09741ee4b9e61fe5b5f97b99,
         type: 3}
