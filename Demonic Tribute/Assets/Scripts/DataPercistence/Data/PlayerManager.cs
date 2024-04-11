@@ -10,7 +10,7 @@ public class PlayerManager : MonoBehaviour
     public Transform player;
     public void Start()
     {
-            instance = this;
+        instance = this;
         player = GameObject.FindGameObjectWithTag("Player").transform;
         StartCoroutine(AutoSave());
     }
