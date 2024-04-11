@@ -1,7 +1,6 @@
 using JetBrains.Annotations;
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEditorInternal.Profiling.Memory.Experimental;
 using UnityEngine;
 
@@ -15,7 +14,7 @@ public class ItemSpawnscript : MonoBehaviour
 
     [Header("items")]
     public GameObject[] items;
-    public int numGameObjects = 4;
+    public int numGameObjects = 5;
     public GameObject itemHolder;
 
     [Header("Other variables")]
@@ -32,31 +31,16 @@ public class ItemSpawnscript : MonoBehaviour
     public bool noSpawn;
 
     // Start is called before the first frame update
-    public void Start()
+    void Start()
     {
-        if (instance == null)
-        {
-            instance = this;
+        if(instance == null) 
+        {  
+            instance = this; 
         }
         currentNumItems = 0;
 
         spawnCollider = GetComponent<Collider>();
-        StartCoroutine(spawnItem());
-    }
-    void Update()
-    {
 
-
-    }
-    public void CheckCollision()
-    {
-        if (itemHolder.GetComponent<ItemSpawnDetect>().cantSpawn == true)
-        {
-            noSpawn = true;
-        }
-    }
-    public IEnumerator spawnItem()
-    {
         while (currentNumItems < numberOfItems)
         {
             spawnPoint.x = Random.Range(spawnCollider.bounds.min.x, spawnCollider.bounds.max.x);
@@ -70,12 +54,13 @@ public class ItemSpawnscript : MonoBehaviour
 
             randomNum = Random.Range(0, numGameObjects);
             itemHolder = items[randomNum];
-
+            
             Instantiate(itemHolder, spawnPoint, randomQuaternion);
 
             canInstantiate = true;
             noSpawn = false;
             CheckCollision();
+            print("Check");
 
             if (noSpawn == true)
             {
@@ -92,7 +77,14 @@ public class ItemSpawnscript : MonoBehaviour
                 break;
             }
         }
-        yield return new WaitForSeconds(1);
+    }
+    public void CheckCollision()
+    {
+        Collider objectCollider = itemHolder.GetComponent<Collider>();
+        if (objectCollider.GetComponent<Collider>().CompareTag("Obstacle"))
+        {
+            noSpawn = false;
+        }
     }
 }
 
