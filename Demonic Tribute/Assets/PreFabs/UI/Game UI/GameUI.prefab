@@ -272,13 +272,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4f18ab5c8cfb2d844b55987365c311a4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  day: 0
   daycount: {fileID: 7115917166160069527}
   timeLeft: 0
   timeMin: 0
   timeSec: 0
   timerOn: 0
+  day: 0
   timeCounter: {fileID: 3775498825255666831}
+  thePlayer: {fileID: 0}
   d: 0
 --- !u!114 &8354717602730236372
 MonoBehaviour:
